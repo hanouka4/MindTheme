@@ -11,7 +11,7 @@
          color: {{ component.title_color|default('#1A1A1A') }}; 
          font-size: {{ component.title_size|default('40px') }}; 
          text-align: {{ component.title_align|default('start') }};">
-      {{ component.title|raw|default('ثلاث قواعد<br>تحكم كل شيء.') }}
+      {{ component.title|default('ثلاث قواعد<br>تحكم كل شيء.')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}
     </h2>
 
     <div class="wisdom-grid" style="display: grid; gap: 80px;">
@@ -21,21 +21,19 @@
         { 'rules.text': 'الاستوديو الذي يبني نفسه = الاستوديو الذي ينمو وأنت نائم. النظام هو ما يفصل المحترف عن الموظف.', 'rules.attribution': '—  Playbook 03  ·  Studio Build' }
       ] %}
       
-      {% set rules = component.rules ?: default_rules %}
+      {% set rules = (component.rules and component.rules|length > 0 and component.rules[0]['rules.text']) ? component.rules : default_rules %}
       {% for rule in rules %}
-        {% if rule['rules.text'] or not component.rules %}
-          <div class="wisdom-item" style="display: grid; grid-template-columns: 0.5fr 6fr; gap: 32px; align-items: start;">
-            <div class="wisdom-quote-mark" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 96px; color: {{ component.quote_color|default('var(--coral)') }}; line-height: 1;">"</div>
-            <div class="wisdom-content">
-              <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(24px, 3vw, 32px); color: var(--ink); line-height: 1.4; margin-bottom: 16px;">
-                {{ rule['rules.text'] }}
-              </p>
-              <p style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--warm-tan); letter-spacing: 0.15em;">
-                {{ rule['rules.attribution'] }}
-              </p>
-            </div>
+        <div class="wisdom-item" style="display: grid; grid-template-columns: 0.5fr 6fr; gap: 32px; align-items: start;">
+          <div class="wisdom-quote-mark" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 96px; color: {{ component.quote_color|default('var(--coral)') }}; line-height: 1;">"</div>
+          <div class="wisdom-content">
+            <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(24px, 3vw, 32px); color: var(--ink); line-height: 1.4; margin-bottom: 16px;">
+              {{ rule['rules.text'] }}
+            </p>
+            <p style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--warm-tan); letter-spacing: 0.15em;">
+              {{ rule['rules.attribution'] }}
+            </p>
           </div>
-        {% endif %}
+        </div>
       {% endfor %}
     </div>
   </div>

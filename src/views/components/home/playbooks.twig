@@ -11,14 +11,14 @@
          color: {{ component.title_color|default('#1A1A1A') }}; 
          font-size: {{ component.title_size|default('40px') }}; 
          text-align: {{ component.title_align|default('start') }};">
-      {{ component.title|raw|default('ثلاثة أدلّة تبني<br>النظام كاملاً.') }}
+      {{ component.title|default('مناهج مكثّفة<br>للمصمّم الـ AI-Native.')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}
     </h2>
     
     <p style="line-height:1.7; margin-bottom: 40px; max-width:680px;
          color: {{ component.desc_color|default('#2E2E2E') }}; 
          font-size: {{ component.desc_size|default('17px') }}; 
          text-align: {{ component.desc_align|default('start') }};">
-      {{ component.description|raw|default('كل Playbook مدرسة قائمة بذاتها — منهجية مكتملة، أدوات مختارة بعناية، Prompts جاهزة، Case Study حقيقية، وملاحق مرجعية. تُستخدم بشكل مستقل أو كسلسلة متكاملة.') }}
+      {{ component.description|default('كل Playbook مدرسة قائمة بذاتها — منهجية مكتملة، أدوات مختارة بعناية، Prompts جاهزة، Case Study حقيقية، وملاحق مرجعية. تُستخدم بشكل مستقل أو كسلسلة متكاملة.')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}
     </p>
     
     <div class="playbooks-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">

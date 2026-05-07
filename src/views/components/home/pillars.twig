@@ -14,7 +14,7 @@
          color: {{ component.title_color|default('#F7EDE3') }}; 
          font-size: {{ component.title_size|default('40px') }}; 
          text-align: {{ component.title_align|default('start') }};">
-      {{ component.title|raw|default('أربع ركائز<br>تبني استوديو متكامل.') }}
+      {{ component.title|default('أربع ركائز<br>تبني استوديو متكامل.')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}
     </h2>
 
     <p class="section-tagline" style="font-family: 'Cormorant Garamond', serif; font-style: italic; margin-bottom: 32px;
@@ -35,26 +35,24 @@
         { 'pillars.num': '04', 'pillars.label': 'COMMERCIAL FRAME', 'pillars.title': 'الإطار التجاري', 'pillars.desc': 'تسعير المشاريع بـ AI، عقود نموذجية، شبكة عملاء، ومحفظة احترافية.' }
       ] %}
       
-      {% set items = component.pillars ?: default_pillars %}
+      {% set items = (component.pillars and component.pillars|length > 0 and component.pillars[0]['pillars.title']) ? component.pillars : default_pillars %}
       {% for pillar in items %}
-        {% if pillar['pillars.title'] or not component.pillars %}
-          <div class="pillar" style="display: flex; gap: 24px;">
-            <div class="pillar-num" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 28px; color: var(--coral); flex-shrink: 0; line-height: 1;">
-              {{ pillar['pillars.num'] }}
-            </div>
-            <div class="pillar-content">
-              <div class="label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: 0.15em; margin-bottom: 4px;">
-                {{ pillar['pillars.label'] }}
-              </div>
-              <h3 style="font-size: 18px; margin-bottom: 8px; font-weight: 600; color: {{ component.title_color|default('#F7EDE3') }};">
-                {{ pillar['pillars.title'] }}
-              </h3>
-              <p style="color: {{ component.tagline_color|default('#C89469') }}; font-size: 14px; line-height: 1.6;">
-                {{ pillar['pillars.desc'] }}
-              </p>
-            </div>
+        <div class="pillar" style="display: flex; gap: 24px;">
+          <div class="pillar-num" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 28px; color: var(--coral); flex-shrink: 0; line-height: 1;">
+            {{ pillar['pillars.num'] }}
           </div>
-        {% endif %}
+          <div class="pillar-content">
+            <div class="label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: 0.15em; margin-bottom: 4px;">
+              {{ pillar['pillars.label'] }}
+            </div>
+            <h3 style="font-size: 18px; margin-bottom: 8px; font-weight: 600; color: {{ component.title_color|default('#F7EDE3') }};">
+              {{ pillar['pillars.title'] }}
+            </h3>
+            <p style="color: {{ component.tagline_color|default('#C89469') }}; font-size: 14px; line-height: 1.6;">
+              {{ pillar['pillars.desc'] }}
+            </p>
+          </div>
+        </div>
       {% endfor %}
     </div>
   </div>

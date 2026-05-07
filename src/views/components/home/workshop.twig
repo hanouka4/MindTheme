@@ -13,7 +13,7 @@
              color: {{ component.title_color|default('#F7EDE3') }}; 
              font-size: {{ component.title_size|default('40px') }}; 
              text-align: {{ component.title_align|default('start') }};">
-          {{ component.title|raw|default('أربعة أيام<br>تبني استوديوك.') }}
+          {{ component.title|default('أربعة أيام<br>تبني استوديوك.')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}
         </h2>
         
         <p class="section-tag" style="font-family: 'Cormorant Garamond', serif; font-style: italic; margin-bottom: 32px;
@@ -27,7 +27,7 @@
              color: {{ component.desc_color|default('#F7EDE3') }}; 
              font-size: {{ component.desc_size|default('17px') }}; 
              text-align: {{ component.desc_align|default('start') }};">
-          {{ component.description|raw|default('أربعة أيام تطبيقيّة حضوريّة بقيادة فريق MiND، في مجموعة محدودة بدعوة. الورشة تشمل الأدلّة الثلاث مجاناً + تطبيقاً كاملاً على مشروعك + مجتمع المتدرّبين.') }}
+          {{ component.description|default('أربعة أيام تطبيقيّة حضوريّة بقيادة فريق MiND، في مجموعة محدودة بدعوة. الورشة تشمل الأدلّة الثلاث مجاناً + تطبيقاً كاملاً على مشروعك + مجتمع المتدرّبين.')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}
         </p>
         
         <a href="{{ link('products') }}" class="btn btn-primary" style="background: {{ component.btn_bg|default('#E85544') }}; color: #F7EDE3;">
@@ -45,14 +45,12 @@
             {'features.text': 'أولوية حضور لمشتري الـ Design AI Playbooks'}
           ] %}
           
-          {% set items = component.features ?: default_features %}
+          {% set items = (component.features and component.features|length > 0 and component.features[0]['features.text']) ? component.features : default_features %}
           {% for item in items %}
-            {% if item['features.text'] or not component.features %}
-              <li style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 17px; line-height: 1.4; color: {{ component.desc_color|default('#F7EDE3') }};">
-                <span class="check" style="color: var(--coral); font-weight: bold;">✓</span>
-                <span>{{ item['features.text'] }}</span>
-              </li>
-            {% endif %}
+            <li style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 17px; line-height: 1.4; color: {{ component.desc_color|default('#F7EDE3') }};">
+              <span class="check" style="color: var(--coral); font-weight: bold;">✓</span>
+              <span>{{ item['features.text'] }}</span>
+            </li>
           {% endfor %}
         </ul>
       </div>

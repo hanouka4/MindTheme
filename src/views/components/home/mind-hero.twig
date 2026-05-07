@@ -19,7 +19,7 @@
       <h1 style="color: {{ component.title_color|default('var(--ink)') }}; 
            font-size: {{ component.title_size|default('64px') }}; 
            text-align: {{ component.title_align|default('start') }};">
-        {{ component.title|raw|default('بناء الاستوديو<br><span class="accent">التصميمي.</span>') }}
+        {{ component.title|default('بناء الاستوديو<br><span class="accent">التصميمي.</span>')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}
       </h1>
 
       <p class="hero-tagline" style="color: {{ component.tagline_color|default('var(--warm-tan)') }}; 

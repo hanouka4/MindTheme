@@ -38,7 +38,7 @@
            color: {{ component.desc2_color|default('#B0866A') }}; 
            font-size: {{ component.desc2_size|default('19px') }}; 
            text-align: {{ component.desc2_align|default('start') }};">
-        {{ component.desc_2|raw|default('Edition 01 هي Design AI. وما بعدها يتوزّع على <strong style="color:var(--coral); font-style:normal;">أربع قنوات تحريريّة</strong>، كلّها تشترك في منطق واحد: لا تكتفِ بشرح الأداة، بل ابنِ النظام.') }}
+        {{ component.desc_2|default('Edition 01 هي Design AI. وما بعدها يتوزّع على <strong style="color:var(--coral); font-style:normal;">أربع قنوات تحريريّة</strong>، كلّها تشترك في منطق واحد: لا تكتفِ بشرح الأداة، بل ابنِ النظام.')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}
       </p>
     </div>
 
