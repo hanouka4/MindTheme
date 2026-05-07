@@ -1624,13 +1624,105 @@
                     "id": "channels",
                     "type": "collection",
                     "format": "collection",
-                    "label": "Channels",
-                    "item_label": "Channel",
-                    "value": [],
+                    "label": "القنوات التحريرية",
+                    "item_label": "قناة",
+                    "value": [
+                        {
+                            "channels.label": "CHANNEL A",
+                            "channels.title": "Design × AI",
+                            "channels.subtitle": "منهجيّات الـ AI للمصمّم",
+                            "channels.desc": "الأدلّة التطبيقيّة لاستخدام AI في كل مرحلة من رحلة المصمّم — من البريف إلى التسليم.",
+                            "channels.footer": "Floor Plan · Render · Studio",
+                            "channels.badge": "EDITION 01",
+                            "channels.bg": "#1A1A1A",
+                            "channels.text_color": "#F7EDE3",
+                            "channels.featured": true
+                        },
+                        {
+                            "channels.label": "CHANNEL B",
+                            "channels.title": "Craft & Practice",
+                            "channels.subtitle": "الحرفة والممارسة",
+                            "channels.desc": "إصدارات عن جوهر التصميم الداخلي ذاته — لا عن أدواته. الإضاءة، الموود بورد، اللون، المواد، الأبعاد البشريّة.",
+                            "channels.footer": "Lighting · Mood Board · Color",
+                            "channels.badge": "UPCOMING",
+                            "channels.bg": "#EFE3D5",
+                            "channels.text_color": "#1A1A1A"
+                        },
+                        {
+                            "channels.label": "CHANNEL C",
+                            "channels.title": "Business of Design",
+                            "channels.subtitle": "إدارة الممارسة",
+                            "channels.desc": "إصدارات عن العمل لا عن التصميم — التسعير، العقود، العرض الفنّي، إدارة العميل، وبناء استوديو ينمو.",
+                            "channels.footer": "Pricing · Proposals · Contracts",
+                            "channels.badge": "UPCOMING",
+                            "channels.bg": "#EFE3D5",
+                            "channels.text_color": "#1A1A1A"
+                        },
+                        {
+                            "channels.label": "CHANNEL D",
+                            "channels.title": "Reference Libraries",
+                            "channels.subtitle": "المكتبات المرجعيّة",
+                            "channels.desc": "أصول جاهزة للاستخدام — أطلس مواد، مكتبة موود بوردز، قوالب عقود، Prompts للمشتركين.",
+                            "channels.footer": "Atlas · Templates · Vault",
+                            "channels.badge": "UPCOMING",
+                            "channels.bg": "#EFE3D5",
+                            "channels.text_color": "#1A1A1A"
+                        }
+                    ],
                     "fields": [
                         {
-                            "id": "title",
-                            "type": "string"
+                            "id": "channels.label",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Channel Label"
+                        },
+                        {
+                            "id": "channels.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title"
+                        },
+                        {
+                            "id": "channels.subtitle",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Subtitle"
+                        },
+                        {
+                            "id": "channels.desc",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Description"
+                        },
+                        {
+                            "id": "channels.footer",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Footer Text"
+                        },
+                        {
+                            "id": "channels.badge",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Badge Text"
+                        },
+                        {
+                            "id": "channels.bg",
+                            "type": "string",
+                            "format": "color",
+                            "label": "Background"
+                        },
+                        {
+                            "id": "channels.text_color",
+                            "type": "string",
+                            "format": "color",
+                            "label": "Text Color"
+                        },
+                        {
+                            "id": "channels.featured",
+                            "type": "boolean",
+                            "format": "switch",
+                            "label": "Featured (Shadow)"
                         }
                     ]
                 }
@@ -1782,13 +1874,58 @@
                     "id": "pillars",
                     "type": "collection",
                     "format": "collection",
-                    "label": "Pillars",
-                    "item_label": "Pillar",
-                    "value": [],
+                    "label": "الركائز",
+                    "item_label": "ركيزة",
+                    "value": [
+                        {
+                            "pillars.num": "01",
+                            "pillars.label": "OPERATING MODEL",
+                            "pillars.title": "نموذج التشغيل",
+                            "pillars.desc": "Workflow موحّد من البريف إلى التسليم — قابل للتكرار في كل مشروع تصميم داخلي."
+                        },
+                        {
+                            "pillars.num": "02",
+                            "pillars.label": "AI STACK",
+                            "pillars.title": "النظام التقنيّ",
+                            "pillars.desc": "اختيار وتجهيز أدوات AI المعتمدة، اشتراكات مدروسة، مكتبات Templates جاهزة."
+                        },
+                        {
+                            "pillars.num": "03",
+                            "pillars.label": "DELIVERY SYSTEM",
+                            "pillars.title": "نظام التسليم",
+                            "pillars.desc": "وثائق ومعايير مهنية تليق بأكبر المشاريع — Design Books، Walkthroughs، مخططات تنفيذية."
+                        },
+                        {
+                            "pillars.num": "04",
+                            "pillars.label": "COMMERCIAL FRAME",
+                            "pillars.title": "الإطار التجاري",
+                            "pillars.desc": "تسعير المشاريع بـ AI، عقود نموذجية، شبكة عملاء، ومحفظة احترافية."
+                        }
+                    ],
                     "fields": [
                         {
-                            "id": "title",
-                            "type": "string"
+                            "id": "pillars.num",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Number"
+                        },
+                        {
+                            "id": "pillars.label",
+                            "type": "string",
+                            "format": "text",
+                            "label": "English Label"
+                        },
+                        {
+                            "id": "pillars.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title"
+                        },
+                        {
+                            "id": "pillars.desc",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Description"
                         }
                     ]
                 }
@@ -2023,13 +2160,34 @@
                     "id": "rules",
                     "type": "collection",
                     "format": "collection",
-                    "label": "Rules",
-                    "item_label": "Rule",
-                    "value": [],
+                    "label": "القواعد",
+                    "item_label": "قاعدة",
+                    "value": [
+                        {
+                            "rules.text": "النظام يتفوّق على الموهبة لأن الموهبة تعمل ساعات والنظام يعمل 24/7.",
+                            "rules.attribution": "—  Playbook 01  ·  Floor Plan"
+                        },
+                        {
+                            "rules.text": "الرندر الواحد لا يبيع. الأربعة رندرز المتسلسلة تبيع. هذي ليست تقنية — بل سرديّة بصرية.",
+                            "rules.attribution": "—  Playbook 02  ·  Render"
+                        },
+                        {
+                            "rules.text": "الاستوديو الذي يبني نفسه = الاستوديو الذي ينمو وأنت نائم. النظام هو ما يفصل المحترف عن الموظف.",
+                            "rules.attribution": "—  Playbook 03  ·  Studio Build"
+                        }
+                    ],
                     "fields": [
                         {
-                            "id": "text",
-                            "type": "string"
+                            "id": "rules.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "النص"
+                        },
+                        {
+                            "id": "rules.attribution",
+                            "type": "string",
+                            "format": "text",
+                            "label": "المصدر/التذييل"
                         }
                     ]
                 }
@@ -2185,16 +2343,41 @@
                     "value": "#E85544"
                 },
                 {
+                    "id": "btn_text",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Button Text",
+                    "value": "صفحة الورشة الكاملة  ←"
+                },
+                {
                     "id": "features",
                     "type": "collection",
                     "format": "collection",
-                    "label": "Features",
-                    "item_label": "Feature",
-                    "value": [],
+                    "label": "المزايا/المحاور",
+                    "item_label": "مزية",
+                    "value": [
+                        {
+                            "features.text": "تطبيق كامل على مشروعك بقيادة فريق MiND"
+                        },
+                        {
+                            "features.text": "متابعة شخصية من فريق MiND طوال 4 أيام"
+                        },
+                        {
+                            "features.text": "Setup كامل لاستوديو AI شخصي — أدوات وقوالب جاهزة"
+                        },
+                        {
+                            "features.text": "مجتمع المتدرّبين + متابعة 30 يوماً"
+                        },
+                        {
+                            "features.text": "أولوية حضور لمشتري الـ Design AI Playbooks"
+                        }
+                    ],
                     "fields": [
                         {
-                            "id": "text",
-                            "type": "string"
+                            "id": "features.text",
+                            "type": "string",
+                            "format": "text",
+                            "label": "النص"
                         }
                     ]
                 }
