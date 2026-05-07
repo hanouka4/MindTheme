@@ -3,13 +3,10 @@
 |-----------------|------------|--------------------------------|
 | component       | object     | Component fields               |
 #}
-<section id="editions" style="background: {{ component.bg_color|default('var(--cream)') }}; padding: 100px 40px 110px; border-bottom: 0.5px solid var(--hairline);">
-  <div class="container" style="max-width: 1180px; margin: 0 auto;">
+<section id="editions" style="background: {{ component.bg_color|default('var(--cream)') }}; padding: 100px 0; border-bottom: 0.5px solid var(--hairline);">
+  <div class="container" style="max-width: 1180px; margin: 0 auto; padding: 0 40px;">
     
-    <div class="section-label" style="font-family: 'JetBrains Mono', monospace; letter-spacing: 0.15em; margin-bottom: 24px;
-         color: {{ component.label_color|default('#9B9B9B') }}; 
-         font-size: {{ component.label_size|default('11px') }}; 
-         text-align: {{ component.label_align|default('start') }};">
+    <div class="section-label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: {{ component.label_color|default('#9B9B9B') }}; letter-spacing: 0.25em; font-weight: 700; margin-bottom: 16px;">
       {{ component.label|default('EDITORIAL ROADMAP  ·  المنهج التحريريّ') }}
     </div>
 
@@ -27,10 +24,10 @@
       {{ component.tagline|default('Not a course catalog — an editorial institution.') }}
     </p>
 
-    <div class="section-rule" style="width: 60px; height: 1px; background: var(--hairline); margin-bottom: 32px;
+    <div class="section-rule" style="width: 60px; height: 2px; background: var(--coral); margin-bottom: 40px;
          {{ component.title_align == 'center' ? 'margin-left: auto; margin-right: auto;' : (component.title_align == 'end' ? 'margin-right: 0; margin-left: auto;' : '') }}"></div>
 
-    <div class="roadmap-desc-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:48px; max-width:1100px; margin-bottom:64px; align-items:start;">
+    <div class="roadmap-desc-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:48px; max-width:1100px; margin-bottom:64px; align-items:start;">
       <p style="line-height: 1.8;
            color: {{ component.desc1_color|default('#2E2E2E') }}; 
            font-size: {{ component.desc1_size|default('18px') }}; 
@@ -45,8 +42,72 @@
       </p>
     </div>
 
+    <!-- 4 Channels Grid -->
+    <div class="ed-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:24px;">
+      {% set default_channels = [
+        {
+          'channels.label': 'CHANNEL A',
+          'channels.title': 'Design × AI',
+          'channels.subtitle': 'منهجيّات الـ AI للمصمّم',
+          'channels.desc': 'الأدلّة التطبيقيّة لاستخدام AI في كل مرحلة من رحلة المصمّم — من البريف إلى التسليم.',
+          'channels.footer': 'Floor Plan · Render · Studio',
+          'channels.badge': 'EDITION 01',
+          'channels.bg': '#1A1A1A',
+          'channels.text_color': '#F7EDE3',
+          'channels.featured': true
+        },
+        {
+          'channels.label': 'CHANNEL B',
+          'channels.title': 'Craft & Practice',
+          'channels.subtitle': 'الحرفة والممارسة',
+          'channels.desc': 'إصدارات عن جوهر التصميم الداخلي ذاته — لا عن أدواته. الإضاءة، الموود بورد، اللون، المواد، الأبعاد البشريّة.',
+          'channels.footer': 'Lighting · Mood Board · Color',
+          'channels.badge': 'UPCOMING',
+          'channels.bg': '#EFE3D5',
+          'channels.text_color': '#1A1A1A'
+        },
+        {
+          'channels.label': 'CHANNEL C',
+          'channels.title': 'Business of Design',
+          'channels.subtitle': 'إدارة الممارسة',
+          'channels.desc': 'إصدارات عن العمل لا عن التصميم — التسعير، العقود، العرض الفنّي، إدارة العميل، وبناء استوديو ينمو.',
+          'channels.footer': 'Pricing · Proposals · Contracts',
+          'channels.badge': 'UPCOMING',
+          'channels.bg': '#EFE3D5',
+          'channels.text_color': '#1A1A1A'
+        },
+        {
+          'channels.label': 'CHANNEL D',
+          'channels.title': 'Reference Libraries',
+          'channels.subtitle': 'المكتبات المرجعيّة',
+          'channels.desc': 'أصول جاهزة للاستخدام — أطلس مواد، مكتبة موود بوردز، قوالب عقود، Prompts للمشتركين.',
+          'channels.footer': 'Atlas · Templates · Vault',
+          'channels.badge': 'UPCOMING',
+          'channels.bg': '#EFE3D5',
+          'channels.text_color': '#1A1A1A'
+        }
+      ] %}
+      
+      {% set channels = component.channels ?: default_channels %}
+      {% for channel in channels %}
+        <div style="background:{{ channel['channels.bg'] }}; color:{{ channel['channels.text_color'] }}; padding:36px 28px; position:relative; {{ channel['channels.featured'] ? 'box-shadow:0 12px 32px rgba(232,85,68,0.18);' : 'border:1px solid var(--hairline);' }}">
+          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--coral); letter-spacing:0.25em; font-weight:700; margin-bottom:14px;">{{ channel['channels.label'] }}</div>
+          <h3 style="font-size:24px; font-weight:800; line-height:1.2; margin-bottom:6px;">{{ channel['channels.title'] }}</h3>
+          <p style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:{{ channel['channels.featured'] ? 'var(--tan)' : 'var(--warm-tan)' }}; margin-bottom:18px;">{{ channel['channels.subtitle'] }}</p>
+          <div style="width:24px; height:1px; background:var(--coral); margin-bottom:18px;"></div>
+          <p style="font-size:13.5px; line-height:1.65; opacity:0.88; margin-bottom:18px;">
+            {{ channel['channels.desc'] }}
+          </p>
+          <div style="border-top:0.5px dashed {{ channel['channels.featured'] ? 'rgba(255,255,255,0.2)' : 'var(--hairline)' }}; padding-top:14px; font-family:'JetBrains Mono', monospace; font-size:10px; color:{{ channel['channels.featured'] ? 'var(--tan)' : 'var(--warm-tan)' }}; letter-spacing:0.15em;">
+            {{ channel['channels.footer'] }}
+          </div>
+          <div style="position:absolute; top:18px; right:18px; background:{{ channel['channels.featured'] ? 'var(--coral)' : 'var(--ink)' }}; color:var(--cream); padding:4px 10px; font-family:'JetBrains Mono', monospace; font-size:9px; font-weight:700; letter-spacing:0.18em;">{{ channel['channels.badge'] }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
     <!-- Manifesto Banner -->
-    <div style="margin-top:60px; border-right:4px solid var(--coral); display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;
+    <div style="margin-top:60px; border-right:4px solid var(--coral); display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:48px; align-items:center;
          background: {{ component.manifesto_bg|default('#1A1A1A') }}; 
          color: {{ component.manifesto_text|default('#F7EDE3') }}; 
          padding:40px 48px;">

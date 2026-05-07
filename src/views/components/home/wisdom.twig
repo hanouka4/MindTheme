@@ -3,8 +3,9 @@
 |-----------------|------------|--------------------------------|
 | component       | object     | Component fields               |
 #}
-<section class="wisdom" style="padding: 120px 40px; border-top: 0.5px solid var(--hairline); background: {{ component.bg_color|default('#F7EDE3') }};">
-  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+<section class="wisdom" style="background: {{ component.bg_color|default('var(--cream)') }}; padding: 120px 0; border-top: 0.5px solid var(--hairline);">
+  <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 40px;">
+    <div class="section-label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: 0.25em; font-weight: 700; margin-bottom: 16px;">PHILOSOPHY · المنهج</div>
     
     <h2 class="section-title" style="line-height: 1.1; margin-bottom: 60px; font-weight: 800;
          color: {{ component.title_color|default('#1A1A1A') }}; 
@@ -14,12 +15,23 @@
     </h2>
 
     <div class="wisdom-grid" style="display: grid; gap: 80px;">
-      {% for item in component.rules %}
+      {% set default_rules = [
+        { 'rules.text': 'النظام يتفوّق على الموهبة لأن الموهبة تعمل ساعات والنظام يعمل 24/7.', 'rules.attribution': '—  Playbook 01  ·  Floor Plan' },
+        { 'rules.text': 'الرندر الواحد لا يبيع. الأربعة رندرز المتسلسلة تبيع. هذي ليست تقنية — بل سرديّة بصرية.', 'rules.attribution': '—  Playbook 02  ·  Render' },
+        { 'rules.text': 'الاستوديو الذي يبني نفسه = الاستوديو الذي ينمو وأنت نائم. النظام هو ما يفصل المحترف عن الموظف.', 'rules.attribution': '—  Playbook 03  ·  Studio Build' }
+      ] %}
+      
+      {% set rules = component.rules ?: default_rules %}
+      {% for rule in rules %}
         <div class="wisdom-item" style="display: grid; grid-template-columns: 0.5fr 6fr; gap: 32px; align-items: start;">
-          <div class="wisdom-quote-mark" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 96px; line-height: 1; color: {{ component.quote_color|default('#E85544') }};">"</div>
+          <div class="wisdom-quote-mark" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 96px; color: {{ component.quote_color|default('var(--coral)') }}; line-height: 1;">"</div>
           <div class="wisdom-content">
-            <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 32px; color: var(--ink); line-height: 1.4; margin-bottom: 16px;">{{ item.text }}</p>
-            <p style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--warm-tan); letter-spacing: 0.15em; font-weight: 700;">{{ item.attribution }}</p>
+            <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(24px, 3vw, 32px); color: var(--ink); line-height: 1.4; margin-bottom: 16px;">
+              {{ rule['rules.text'] }}
+            </p>
+            <p style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--warm-tan); letter-spacing: 0.15em;">
+              {{ rule['rules.attribution'] }}
+            </p>
           </div>
         </div>
       {% endfor %}

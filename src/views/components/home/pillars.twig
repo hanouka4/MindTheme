@@ -3,13 +3,10 @@
 |-----------------|------------|--------------------------------|
 | component       | object     | Component fields               |
 #}
-<section class="program" id="program" style="padding: 100px 40px; background: {{ component.bg_color|default('#1A1A1A') }};">
-  <div class="container" style="max-width: 1280px; margin: 0 auto;">
+<section class="program" id="program" style="background: {{ component.bg_color|default('#1A1A1A') }}; padding: 100px 0;">
+  <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 40px;">
     
-    <div class="section-label" style="font-family: 'JetBrains Mono', monospace; letter-spacing: 0.15em; margin-bottom: 24px;
-         color: {{ component.label_color|default('#E85544') }}; 
-         font-size: {{ component.label_size|default('11px') }}; 
-         text-align: {{ component.label_align|default('start') }};">
+    <div class="section-label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: 0.25em; font-weight: 700; margin-bottom: 16px;">
       {{ component.label|default('PROGRAM PILLARS · ركائز البرنامج') }}
     </div>
 
@@ -27,17 +24,33 @@
       {{ component.tagline|default('Four pillars. One operating studio.') }}
     </p>
 
-    <div class="section-rule" style="width: 60px; height: 1px; background: var(--hairline); margin-bottom: 40px;
+    <div class="section-rule" style="width: 60px; height: 2px; background: var(--coral); margin-bottom: 40px;
          {{ component.title_align == 'center' ? 'margin-left: auto; margin-right: auto;' : (component.title_align == 'end' ? 'margin-right: 0; margin-left: auto;' : '') }}"></div>
-    
-    <div class="pillars" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1100px;">
-      {% for pillar in component.pillars %}
+
+    <div class="pillars" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1100px;">
+      {% set default_pillars = [
+        { 'pillars.num': '01', 'pillars.label': 'OPERATING MODEL', 'pillars.title': 'نموذج التشغيل', 'pillars.desc': 'Workflow موحّد من البريف إلى التسليم — قابل للتكرار في كل مشروع تصميم داخلي.' },
+        { 'pillars.num': '02', 'pillars.label': 'AI STACK', 'pillars.title': 'النظام التقنيّ', 'pillars.desc': 'اختيار وتجهيز أدوات AI المعتمدة، اشتراكات مدروسة، مكتبات Templates جاهزة.' },
+        { 'pillars.num': '03', 'pillars.label': 'DELIVERY SYSTEM', 'pillars.title': 'نظام التسليم', 'pillars.desc': 'وثائق ومعايير مهنية تليق بأكبر المشاريع — Design Books، Walkthroughs، مخططات تنفيذية.' },
+        { 'pillars.num': '04', 'pillars.label': 'COMMERCIAL FRAME', 'pillars.title': 'الإطار التجاري', 'pillars.desc': 'تسعير المشاريع بـ AI، عقود نموذجية، شبكة عملاء، ومحفظة احترافية.' }
+      ] %}
+      
+      {% set items = component.pillars ?: default_pillars %}
+      {% for pillar in items %}
         <div class="pillar" style="display: flex; gap: 24px;">
-          <div class="pillar-num" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 28px; color: var(--coral); flex-shrink: 0; line-height: 1;">{{ pillar.num }}</div>
+          <div class="pillar-num" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 28px; color: var(--coral); flex-shrink: 0; line-height: 1;">
+            {{ pillar['pillars.num'] }}
+          </div>
           <div class="pillar-content">
-            <div class="label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: 0.15em; margin-bottom: 4px;">{{ pillar.label }}</div>
-            <h3 style="font-size: 18px; margin-bottom: 8px; font-weight: 600; color: {{ component.title_color|default('#F7EDE3') }};">{{ pillar.title }}</h3>
-            <p style="color: var(--tan); font-size: 14px; line-height: 1.6;">{{ pillar.desc }}</p>
+            <div class="label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: 0.15em; margin-bottom: 4px;">
+              {{ pillar['pillars.label'] }}
+            </div>
+            <h3 style="font-size: 18px; margin-bottom: 8px; font-weight: 600; color: {{ component.title_color|default('#F7EDE3') }};">
+              {{ pillar['pillars.title'] }}
+            </h3>
+            <p style="color: {{ component.tagline_color|default('#C89469') }}; font-size: 14px; line-height: 1.6;">
+              {{ pillar['pillars.desc'] }}
+            </p>
           </div>
         </div>
       {% endfor %}

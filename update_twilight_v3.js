@@ -42,7 +42,7 @@ data.components.push({
         { id: 'title', type: 'string', format: 'text', label: 'Title Text', value: 'بناء الاستوديو<br><span class="accent">التصميمي.</span>' },
         ...getTypographyFields('title', { color: '#1A1A1A', size: '64px', align: 'start' }),
         { id: 'tagline', type: 'string', format: 'text', label: 'Tagline Text', value: 'Build Your AI-Native Interior Design Studio.' },
-        ...getTypographyFields('tagline', { color: '#1A1A1A', size: '22px', align: 'start' }),
+        ...getTypographyFields('tagline', { color: '#B0866A', size: '22px', align: 'start' }),
         { id: 'quote', type: 'string', format: 'textarea', label: 'Quote Text', value: '«النظام يتفوّق على الموهبة لأن الموهبة تعمل ساعات والنظام يعمل 24/7».' },
         ...getTypographyFields('quote', { color: '#1A1A1A', size: '19px', align: 'start' }),
         { id: 'description', type: 'string', format: 'textarea', label: 'Description Text', value: 'نظام كامل للمصمّم الداخلي — مساكن، مقاهي، مكاتب، مطاعم، تجزئة. سلسلة Playbooks مكثّفة + ورشة تطبيقية حضورية، تبني لك استوديو متكامل يعمل بالذكاء الاصطناعي.' },
@@ -187,7 +187,7 @@ data.components.push({
     path: 'home.playbooks',
     fields: [
         { id: 'bg_color', type: 'string', format: 'color', label: 'Background Color', value: 'transparent' },
-        { id: 'title', type: 'string', format: 'text', label: 'Title', value: 'مناهج مكثّفة<br>للمصمّم الـ AI-Native.' },
+        { id: 'title', type: 'string', format: 'text', label: 'Title', value: 'ثلاثة أدلّة تبني<br>النظام كاملاً.' },
         ...getTypographyFields('title', { color: '#1A1A1A', size: '40px', align: 'start' }),
         { id: 'description', type: 'string', format: 'textarea', label: 'Description', value: 'كل Playbook مدرسة قائمة بذاتها — منهجية مكتملة، أدوات مختارة بعناية، Prompts جاهزة، Case Study حقيقية، وملاحق مرجعية. تُستخدم بشكل مستقل أو كسلسلة متكاملة.' },
         ...getTypographyFields('desc', { color: '#2E2E2E', size: '17px', align: 'start' }),
@@ -266,3 +266,4 @@ data.components.push({
 
 fs.writeFileSync('twilight.json', JSON.stringify(data, null, 4));
 console.log('twilight.json updated with design defaults and granular controls.');
+

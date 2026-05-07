@@ -1201,7 +1201,7 @@
                     "type": "string",
                     "format": "color",
                     "label": "tagline Color",
-                    "value": "#1A1A1A"
+                    "value": "#B0866A"
                 },
                 {
                     "id": "tagline_size",
@@ -1952,7 +1952,7 @@
                     "type": "string",
                     "format": "text",
                     "label": "Title",
-                    "value": "مناهج مكثّفة<br>للمصمّم الـ AI-Native."
+                    "value": "ثلاثة أدلّة تبني<br>النظام كاملاً."
                 },
                 {
                     "id": "title_color",

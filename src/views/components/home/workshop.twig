@@ -3,45 +3,53 @@
 |-----------------|------------|--------------------------------|
 | component       | object     | Component fields               |
 #}
-<section class="workshop" id="workshop" style="padding: 120px 40px; background: {{ component.bg_color|default('#1A1A1A') }};">
-  <div class="container" style="max-width: 1280px; margin: 0 auto;">
-    <div class="workshop-inner" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center;">
-      <div>
+<section class="workshop" id="workshop" style="background: {{ component.bg_color|default('#1A1A1A') }}; padding: 120px 0;">
+  <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 40px;">
+    <div class="workshop-inner" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:80px; align-items:center;">
+      <div style="text-align: {{ component.title_align|default('start') }};">
+        <div class="section-label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: 0.25em; font-weight: 700; margin-bottom: 16px;">STUDIO BUILD WORKSHOP · الورشة الحضورية</div>
+        
         <h2 class="section-title" style="line-height: 1.1; margin-bottom: 24px; font-weight: 800;
              color: {{ component.title_color|default('#F7EDE3') }}; 
              font-size: {{ component.title_size|default('40px') }}; 
              text-align: {{ component.title_align|default('start') }};">
           {{ component.title|raw|default('أربعة أيام<br>تبني استوديوك.') }}
         </h2>
-
-        <p class="section-tagline" style="font-family: 'Cormorant Garamond', serif; font-style: italic; margin-bottom: 32px;
+        
+        <p class="section-tag" style="font-family: 'Cormorant Garamond', serif; font-style: italic; margin-bottom: 32px;
              color: {{ component.tagline_color|default('#C89469') }}; 
              font-size: {{ component.tagline_size|default('19px') }}; 
              text-align: {{ component.tagline_align|default('start') }};">
           {{ component.tagline|default('The Live Application — 4 Intensive Days.') }}
         </p>
 
-        <div class="section-rule" style="width: 60px; height: 1px; background: rgba(255,255,255,0.2); margin-bottom: 32px;
-             {{ component.title_align == 'center' ? 'margin-left: auto; margin-right: auto;' : (component.title_align == 'end' ? 'margin-right: 0; margin-left: auto;' : '') }}"></div>
-
-        <p style="line-height:1.7; margin-bottom:40px;
+        <p style="line-height:1.7; margin-bottom:32px; max-width: 520px;
              color: {{ component.desc_color|default('#F7EDE3') }}; 
              font-size: {{ component.desc_size|default('17px') }}; 
              text-align: {{ component.desc_align|default('start') }};">
           {{ component.description|raw|default('أربعة أيام تطبيقيّة حضوريّة بقيادة فريق MiND، في مجموعة محدودة بدعوة. الورشة تشمل الأدلّة الثلاث مجاناً + تطبيقاً كاملاً على مشروعك + مجتمع المتدرّبين.') }}
         </p>
-
-        <a href="{{ link('products') }}" class="btn btn-primary" style="display: inline-block; padding: 18px 36px; font-weight: 700; font-size: 14px; transition: all .2s; border: 1px solid transparent; 
-           background: {{ component.btn_bg|default('#E85544') }}; color: var(--cream);">
+        
+        <a href="{{ link('products') }}" class="btn btn-primary" style="background: {{ component.btn_bg|default('#E85544') }}; color: #F7EDE3;">
           {{ component.btn_text|default('صفحة الورشة الكاملة  ←') }}
         </a>
       </div>
+
       <div>
         <ul class="workshop-features" style="list-style: none; padding: 0;">
-          {% for feature in component.features %}
-            <li style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 17px; line-height: 1.4; border-bottom: 0.5px dashed rgba(255,255,255,0.1); padding-bottom: 24px;">
-              <span class="check" style="color: {{ component.btn_bg|default('#E85544') }}; font-weight: bold;">✓</span>
-              <span>{{ feature.text }}</span>
+          {% set default_features = [
+            {'features.text': 'تطبيق كامل على مشروعك بقيادة فريق MiND'},
+            {'features.text': 'متابعة شخصية من فريق MiND طوال 4 أيام'},
+            {'features.text': 'Setup كامل لاستوديو AI شخصي — أدوات وقوالب جاهزة'},
+            {'features.text': 'مجتمع المتدرّبين + متابعة 30 يوماً'},
+            {'features.text': 'أولوية حضور لمشتري الـ Design AI Playbooks'}
+          ] %}
+          
+          {% set items = component.features ?: default_features %}
+          {% for item in items %}
+            <li style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 17px; line-height: 1.4; color: {{ component.desc_color|default('#F7EDE3') }};">
+              <span class="check" style="color: var(--coral); font-weight: bold;">✓</span>
+              <span>{{ item['features.text'] }}</span>
             </li>
           {% endfor %}
         </ul>
