@@ -5,56 +5,59 @@
 #}
 <section id="editions" style="background: {{ component.bg_color|default('var(--cream)') }}; padding: 100px 40px 110px; border-bottom: 0.5px solid var(--hairline);">
   <div class="container" style="max-width: 1180px; margin: 0 auto;">
-    <div class="section-label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--gray); margin-bottom: 24px;">{{ component.label|default('EDITORIAL ROADMAP  ·  المنهج التحريريّ') }}</div>
-    <h2 class="section-title" style="font-size: 40px; line-height: 1.1; margin-bottom: 24px; color: var(--ink); font-weight: 800;">{{ component.title|raw|default('منصّة تُصدر،<br><span style="color:var(--coral);">عاماً بعد عام.</span>') }}</h2>
-    <p class="section-tagline" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; color: var(--warm-tan); margin-bottom: 32px;">{{ component.tagline|default('Not a course catalog — an editorial institution.') }}</p>
-    <div class="section-rule" style="width: 60px; height: 1px; background: var(--hairline); margin-bottom: 32px;"></div>
+    
+    <div class="section-label" style="font-family: 'JetBrains Mono', monospace; letter-spacing: 0.15em; margin-bottom: 24px;
+         color: {{ component.label_color|default('#9B9B9B') }}; 
+         font-size: {{ component.label_size|default('11px') }}; 
+         text-align: {{ component.label_align|default('start') }};">
+      {{ component.label|default('EDITORIAL ROADMAP  ·  المنهج التحريريّ') }}
+    </div>
+
+    <h2 class="section-title" style="line-height: 1.1; margin-bottom: 24px; font-weight: 800;
+         color: {{ component.title_color|default('#1A1A1A') }}; 
+         font-size: {{ component.title_size|default('40px') }}; 
+         text-align: {{ component.title_align|default('start') }};">
+      {{ component.title|raw|default('منصّة تُصدر،<br><span style="color:var(--coral);">عاماً بعد عام.</span>') }}
+    </h2>
+
+    <p class="section-tagline" style="font-family: 'Cormorant Garamond', serif; font-style: italic; margin-bottom: 32px;
+         color: {{ component.tagline_color|default('#B0866A') }}; 
+         font-size: {{ component.tagline_size|default('19px') }}; 
+         text-align: {{ component.tagline_align|default('start') }};">
+      {{ component.tagline|default('Not a course catalog — an editorial institution.') }}
+    </p>
+
+    <div class="section-rule" style="width: 60px; height: 1px; background: var(--hairline); margin-bottom: 32px;
+         {{ component.title_align == 'center' ? 'margin-left: auto; margin-right: auto;' : (component.title_align == 'end' ? 'margin-right: 0; margin-left: auto;' : '') }}"></div>
 
     <div class="roadmap-desc-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:48px; max-width:1100px; margin-bottom:64px; align-items:start;">
-      <p style="font-size:18px; color:var(--soft-ink); line-height:1.8;">
+      <p style="line-height: 1.8;
+           color: {{ component.desc1_color|default('#2E2E2E') }}; 
+           font-size: {{ component.desc1_size|default('18px') }}; 
+           text-align: {{ component.desc1_align|default('start') }};">
         {{ component.desc_1|raw|default('MiND Academy ليست دورةً، ولا برنامجاً. هي <strong>منصّة تحريريّة</strong> تُصدر — عاماً بعد عام — أدلّةً وورشاً ومكتباتٍ مرجعيّة بمعايير المؤسسات الكبرى.') }}
       </p>
-      <p style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:19px; color:var(--warm-tan); line-height:1.7;">
+      <p style="font-family:'Cormorant Garamond', serif; font-style:italic; line-height:1.7;
+           color: {{ component.desc2_color|default('#B0866A') }}; 
+           font-size: {{ component.desc2_size|default('19px') }}; 
+           text-align: {{ component.desc2_align|default('start') }};">
         {{ component.desc_2|raw|default('Edition 01 هي Design AI. وما بعدها يتوزّع على <strong style="color:var(--coral); font-style:normal;">أربع قنوات تحريريّة</strong>، كلّها تشترك في منطق واحد: لا تكتفِ بشرح الأداة، بل ابنِ النظام.') }}
       </p>
     </div>
 
-    <!-- 4 Channels Grid -->
-    <div class="ed-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:24px;">
-      {% for channel in component.channels %}
-        <div style="background: {{ channel.bg|default('var(--light-bg)') }}; color: {{ channel.text_color|default('var(--ink)') }}; padding:36px 28px; border: {{ channel.bg == 'var(--ink)' ? 'none' : '1px solid var(--hairline)' }}; position:relative; {{ channel.featured ? 'box-shadow:0 12px 32px rgba(232,85,68,0.18);' : '' }}">
-          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--coral); letter-spacing:0.25em; font-weight:700; margin-bottom:14px;">{{ channel.label }}</div>
-          <h3 style="font-size:24px; font-weight:800; color: {{ channel.text_color|default('var(--ink)') }}; line-height:1.2; margin-bottom:6px;">{{ channel.title }}</h3>
-          <p style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color: {{ channel.text_color == 'var(--cream)' ? 'var(--tan)' : 'var(--warm-tan)' }}; margin-bottom:18px;">{{ channel.subtitle }}</p>
-          <div style="width:24px; height:1px; background:var(--coral); margin-bottom:18px;"></div>
-          <p style="font-size:13.5px; line-height:1.65; color: {{ channel.text_color|default('var(--ink)') }}; opacity:0.88; margin-bottom:18px;">{{ channel.desc }}</p>
-          <div style="border-top:0.5px dashed {{ channel.text_color == 'var(--cream)' ? 'rgba(255,255,255,0.2)' : 'var(--hairline)' }}; padding-top:14px; font-family:'JetBrains Mono', monospace; font-size:10px; color: {{ channel.text_color == 'var(--cream)' ? 'var(--tan)' : 'var(--warm-tan)' }}; letter-spacing:0.15em;">
-            {{ channel.footer }}
-          </div>
-          {% if channel.badge %}
-            <div style="position:absolute; top:18px; right:18px; background: {{ channel.badge_bg|default('var(--ink)') }}; color:var(--cream); padding:4px 10px; font-family:'JetBrains Mono', monospace; font-size:9px; font-weight:700; letter-spacing:0.18em;">{{ channel.badge }}</div>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
-
     <!-- Manifesto Banner -->
-    <div style="margin-top:60px; background: {{ component.manifesto_bg|default('var(--ink)') }}; color: {{ component.manifesto_text|default('var(--cream)') }}; padding:40px 48px; border-right:4px solid var(--coral); display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;">
+    <div style="margin-top:60px; border-right:4px solid var(--coral); display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;
+         background: {{ component.manifesto_bg|default('#1A1A1A') }}; 
+         color: {{ component.manifesto_text|default('#F7EDE3') }}; 
+         padding:40px 48px;">
       <div>
         <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--coral); letter-spacing:0.25em; font-weight:700; margin-bottom:14px;">MANIFESTO</div>
-        <h3 style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:26px; color: {{ component.manifesto_text|default('var(--cream)') }}; line-height:1.4;">{{ component.manifesto_ar|raw|default('«MiND ليست مدرسةً تعلّم.<br>هي مكتبة تشغيل للمحترف».') }}</h3>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:26px; line-height:1.4;">{{ component.manifesto_ar|raw|default('«MiND ليست مدرسةً تعلّم.<br>هي مكتبة تشغيل للمحترف».') }}</h3>
       </div>
       <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:17px; color:var(--tan); line-height:1.6; text-align:left; direction:ltr;">
         {{ component.manifesto_en|default('"MiND is not a school that teaches. It\'s an operating library for the professional."') }}
         <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--coral); letter-spacing:0.18em; margin-top:14px; font-weight:700;">— EDITORIAL POSITION · 2026</div>
       </div>
     </div>
-
   </div>
 </section>
-<style>
-@media (max-width: 768px) {
-  .roadmap-desc-grid, .ed-grid, .roadmap-desc-grid + div { grid-template-columns: 1fr !important; gap: 32px !important; }
-  .roadmap-desc-grid + div > div { grid-template-columns: 1fr !important; gap: 32px !important; }
-}
-</style>
