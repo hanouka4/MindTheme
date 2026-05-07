@@ -3,26 +3,35 @@
 |-----------------|------------|--------------------------------|
 | component       | object     | Component fields               |
 #}
-<section class="workshop" id="workshop">
-  <div class="container">
-    <div class="workshop-inner">
+<section class="workshop" id="workshop" style="background: {{ component.bg_color|default('var(--ink)') }}; color: {{ component.text_color|default('var(--cream)') }}; padding: 120px 40px;">
+  <div class="container" style="max-width: 1280px; margin: 0 auto;">
+    <div class="workshop-inner" style="display:grid; grid-template-columns: 1fr 1fr; gap:80px; align-items:center;">
       <div>
-        <div class="section-label">STUDIO BUILD WORKSHOP · الورشة الحضورية</div>
-        <h2 class="section-title" style="color: var(--cream);">{{ component.title|raw|default('أربعة أيام<br>تبني استوديوك.') }}</h2>
-        <p class="section-tagline">{{ component.tagline|default('The Live Application — 4 Intensive Days.') }}</p>
-        <div class="section-rule"></div>
-        <p style="font-size:17px; line-height:1.7; color:var(--cream); margin-bottom:32px;">
+        <div class="section-label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--gray); margin-bottom: 24px;">STUDIO BUILD WORKSHOP · الورشة الحضورية</div>
+        <h2 class="section-title" style="font-size: 40px; line-height: 1.1; margin-bottom: 24px; color: {{ component.text_color|default('var(--cream)') }}; font-weight: 800;">{{ component.title|raw|default('أربعة أيام<br>تبني استوديوك.') }}</h2>
+        <p class="section-tagline" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; color: var(--tan); margin-bottom: 32px;">{{ component.tagline|default('The Live Application — 4 Intensive Days.') }}</p>
+        <div class="section-rule" style="width: 60px; height: 1px; background: rgba(255,255,255,0.2); margin-bottom: 32px;"></div>
+        <p style="font-size:17px; line-height:1.7; color:{{ component.text_color|default('var(--cream)') }}; margin-bottom:40px;">
           {{ component.description|raw|default('أربعة أيام تطبيقيّة حضوريّة بقيادة فريق MiND، في مجموعة محدودة بدعوة. الورشة تشمل الأدلّة الثلاث مجاناً + تطبيقاً كاملاً على مشروعك + مجتمع المتدرّبين.') }}
         </p>
-        <a href="{{ link('products') }}" class="btn btn-primary" style="background:var(--coral);">صفحة الورشة الكاملة  ←</a>
+        <a href="{{ component.btn_url|default(link('products')) }}" class="btn btn-primary" style="display: inline-block; padding: 18px 36px; font-weight: 700; font-size: 14px; transition: all .2s; border: 1px solid transparent; background: {{ component.btn_bg_color|default('var(--coral)') }}; color: var(--cream);">{{ component.btn_text|default('صفحة الورشة الكاملة  ←') }}</a>
       </div>
       <div>
-        <ul class="workshop-features">
+        <ul class="workshop-features" style="list-style: none; padding: 0;">
           {% for feature in component.features %}
-            <li><span class="check">✓</span><span>{{ feature.text }}</span></li>
+            <li style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 17px; line-height: 1.4; border-bottom: 0.5px dashed rgba(255,255,255,0.1); padding-bottom: 24px;">
+              <span class="check" style="color: {{ component.btn_bg_color|default('var(--coral)') }}; font-weight: bold;">✓</span>
+              <span>{{ feature.text }}</span>
+            </li>
           {% endfor %}
         </ul>
       </div>
     </div>
   </div>
 </section>
+<style>
+@media (max-width: 1024px) {
+  .workshop-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+}
+.workshop-features li:last-child { border-bottom: none !important; margin-bottom: 0 !important; padding-bottom: 0 !important; }
+</style>

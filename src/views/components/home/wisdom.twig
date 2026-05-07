@@ -3,20 +3,25 @@
 |-----------------|------------|--------------------------------|
 | component       | object     | Component fields               |
 #}
-<section class="wisdom">
-  <div class="container" style="max-width: 1100px;">
-    <div class="section-label">PHILOSOPHY  ·  المنهج</div>
-    <h2 class="section-title" style="margin-bottom: 60px;">{{ component.title|raw|default('ثلاث قواعد<br>تحكم كل شيء.') }}</h2>
-    <div class="wisdom-grid">
+<section class="wisdom" style="background: {{ component.bg_color|default('var(--cream)') }}; padding: 120px 40px; border-top: 0.5px solid var(--hairline);">
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--gray); margin-bottom: 24px;">PHILOSOPHY  ·  المنهج</div>
+    <h2 class="section-title" style="font-size: 40px; line-height: 1.1; margin-bottom: 60px; color: var(--ink); font-weight: 800;">{{ component.title|raw|default('ثلاث قواعد<br>تحكم كل شيء.') }}</h2>
+    <div class="wisdom-grid" style="display: grid; gap: 80px;">
       {% for item in component.rules %}
-        <div class="wisdom-item">
-          <div class="wisdom-quote-mark">"</div>
+        <div class="wisdom-item" style="display: grid; grid-template-columns: 0.5fr 6fr; gap: 32px; align-items: start;">
+          <div class="wisdom-quote-mark" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 96px; color: {{ component.quote_color|default('var(--coral)') }}; line-height: 1;">"</div>
           <div class="wisdom-content">
-            <p>{{ item.text }}</p>
-            <p>{{ item.attribution }}</p>
+            <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 32px; color: var(--ink); line-height: 1.4; margin-bottom: 16px;">{{ item.text }}</p>
+            <p style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--warm-tan); letter-spacing: 0.15em; font-weight: 700;">{{ item.attribution }}</p>
           </div>
         </div>
       {% endfor %}
     </div>
   </div>
 </section>
+<style>
+@media (max-width: 768px) {
+  .wisdom-item { grid-template-columns: 1fr !important; gap: 16px !important; }
+}
+</style>

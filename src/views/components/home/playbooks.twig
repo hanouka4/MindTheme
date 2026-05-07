@@ -4,15 +4,18 @@
 | component       | object     | Component fields               |
 | products        | Products[] | List of products               |
 #}
-<section class="playbooks mt-16 sm:mt-24">
-  <div class="container">
-    <div class="section-label">DESIGN AI PLAYBOOKS · الأدلّة التطبيقية</div>
-    <h2 class="section-title">{{ component.title|raw|default('مناهج مكثّفة<br>للمصمّم الـ AI-Native.') }}</h2>
-    <p style="font-size:17px; color:var(--soft-ink); max-width:680px; line-height:1.7;">
+<section class="playbooks" style="background: {{ component.bg_color|default('transparent') }}; padding: 100px 0;">
+  <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 40px;">
+    <div class="section-label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--gray); margin-bottom: 24px;">DESIGN AI PLAYBOOKS · سلسلة الأدلّة التطبيقية</div>
+    <h2 class="section-title" style="font-size: 40px; line-height: 1.1; margin-bottom: 24px; color: var(--ink); font-weight: 800;">{{ component.title|raw|default('مناهج مكثّفة<br>للمصمّم الـ AI-Native.') }}</h2>
+    <p class="section-tagline" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; color: var(--warm-tan); margin-bottom: 32px;">Three playbooks. One method.</p>
+    <div class="section-rule" style="width: 60px; height: 1px; background: var(--hairline); margin-bottom: 32px;"></div>
+    
+    <p style="font-size:17px; color:var(--soft-ink); max-width:680px; line-height:1.7; margin-bottom: 40px;">
       {{ component.description|raw|default('كل Playbook مدرسة قائمة بذاتها — منهجية مكتملة، أدوات مختارة بعناية، Prompts جاهزة، Case Study حقيقية، وملاحق مرجعية. تُستخدم بشكل مستقل أو كسلسلة متكاملة.') }}
     </p>
     
-    <div class="playbooks-grid">
+    <div class="playbooks-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
       {# If added via editor, products might be in component.products #}
       {% set playbook_items = component.products ?: products %}
       {% for product in playbook_items %}
@@ -20,13 +23,13 @@
       {% endfor %}
     </div>
 
-    <div style="margin-top:60px; padding:32px; background:var(--light-bg); border-right:4px solid var(--coral); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+    <div style="margin-top:60px; padding:40px 48px; background:var(--light-bg); border-right:4px solid var(--coral); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;">
       <div>
-        <div class="section-label" style="margin-bottom:8px;">FULL SERIES · السلسلة الكاملة</div>
-        <h3 style="font-size:24px; font-weight:600;">الـ 3 Playbooks مجتمعة — للمصمّم الذي يبني وحده</h3>
-        <p style="color:var(--soft-ink); font-size:14px; margin-top:8px; line-height:1.6;">هل تفضّل التطبيق بقيادة فريق MiND؟ الورشة الحضوريّة تشمل الأدلّة الثلاث مجاناً.</p>
+        <div class="section-label" style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--coral); letter-spacing: 0.25em; font-weight: 700; margin-bottom: 14px;">FULL SERIES · السلسلة الكاملة</div>
+        <h3 style="font-size:24px; font-weight:800; color:var(--ink); line-height:1.4;">{{ component.banner_title|default('الـ 3 Playbooks مجتمعة — للمصمّم الذي يبني وحده') }}</h3>
+        <p style="font-size:14px; color:var(--soft-ink); line-height:1.7; margin-top:12px;">{{ component.banner_desc|default('هل تفضّل التطبيق بقيادة فريق MiND؟ الورشة الحضوريّة تشمل الأدلّة الثلاث مجاناً.') }}</p>
       </div>
-      <a href="{{ link('products') }}" class="btn btn-primary">للاستفسار  ←</a>
+      <a href="{{ component.banner_btn_url|default(link('products')) }}" class="btn btn-primary" style="display: inline-block; padding: 18px 36px; font-weight: 700; font-size: 14px; transition: all .2s; border: 1px solid transparent; background: var(--ink); color: var(--cream);">{{ component.banner_btn_text|default('للاستفسار  ←') }}</a>
     </div>
   </div>
 </section>

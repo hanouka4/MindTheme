@@ -1,34 +1,55 @@
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-label mono">DESIGN AI STUDIO</div>
-      <div class="hero-rule"></div>
-      <h1>THE ART OF <span class="accent">MiND</span> <br>ENGINEERING</h1>
-      <div class="hero-tagline mono serif">Where Logic Meets Aesthetics</div>
-      <p class="hero-desc">We build the bridges between human creativity and artificial intelligence. Our playbooks and workshops are designed to help you master the next generation of digital craft.</p>
-      <div class="cta-row">
-        <a href="{{ link('products') }}" class="btn btn-primary">EXPLORE PLAYBOOKS</a>
-        <a href="{{ link('products') }}" class="btn btn-secondary">JOIN WORKSHOP</a>
+{#
+| Variable        | Type       | Description                    |
+|-----------------|------------|--------------------------------|
+| component       | object     | Component fields               |
+#}
+<section class="hero" style="background: {{ component.bg_color|default('var(--cream)') }}; color: {{ component.text_color|default('var(--ink)') }}; padding: 120px 40px 80px; border-bottom: 0.5px solid var(--hairline);">
+  <div class="hero-inner" style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+    <div>
+      <div class="hero-label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: {{ component.accent_color|default('var(--coral)') }}; font-weight: 700; margin-bottom: 24px;">{{ component.label|default('DESIGN AI ACADEMY · 2026') }}</div>
+      <div class="hero-rule" style="width: 60px; height: 2px; background: {{ component.accent_color|default('var(--coral)') }}; margin-bottom: 28px;"></div>
+      <h1 style="font-size: clamp(48px, 6vw, 84px); line-height: 1; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 24px;">{{ component.title|raw|default('بناء الاستوديو<br><span class="accent" style="color:'~component.accent_color|default('var(--coral)')~';">التصميمي.</span>') }}</h1>
+      <p class="hero-tagline" style="font-size: 22px; font-weight: 600; margin-bottom: 16px; color: {{ component.text_color|default('var(--ink)') }};">{{ component.tagline|default('Build Your AI-Native Interior Design Studio.') }}</p>
+      <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; color: {{ component.text_color|default('var(--ink)') }}; margin-bottom: 24px; max-width: 540px; line-height: 1.5;">{{ component.quote|default('«النظام يتفوّق على الموهبة لأن الموهبة تعمل ساعات والنظام يعمل 24/7».') }}</p>
+      <p class="hero-desc" style="font-size: 17px; line-height: 1.6; opacity: 0.85; max-width: 520px; margin-bottom: 40px;">{{ component.description|default('نظام كامل للمصمّم الداخلي — مساكن، مقاهي، مكاتب، مطاعم، تجزئة. سلسلة Playbooks مكثّفة + ورشة تطبيقية حضورية، تبني لك استوديو متكامل يعمل بالذكاء الاصطناعي.') }}</p>
+      <div class="cta-row" style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="{{ component.btn_primary_url|default(link('products')) }}" class="btn btn-primary" style="display: inline-block; padding: 18px 36px; font-weight: 700; font-size: 14px; transition: all .2s; border: 1px solid transparent; background: {{ component.text_color|default('var(--ink)') }}; color: {{ component.bg_color|default('var(--cream)') }};">{{ component.btn_primary_text|default('اطّلع على الـ Playbooks  ←') }}</a>
+        <a href="{{ component.btn_secondary_url|default(link('products')) }}" class="btn btn-secondary" style="display: inline-block; padding: 18px 36px; font-weight: 700; font-size: 14px; transition: all .2s; border: 1px solid var(--hairline); color: {{ component.text_color|default('var(--ink)') }}; background: transparent;">{{ component.btn_secondary_text|default('الورشة الحضورية') }}</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hv-bracket tl"></div>
-      <div class="hv-bracket tr"></div>
-      <div class="hv-bracket bl"></div>
-      <div class="hv-bracket br"></div>
-      <div class="hv-top">
-        <div class="hero-visual-text mono">SYSTEM 01</div>
-        <div class="hv-rule"></div>
+    <div class="hero-visual" style="position: relative; height: 100%; min-height: 500px; display: flex; flex-direction: column; justify-content: space-between; padding: 40px;">
+      <span class="hv-bracket tl" style="position: absolute; width: 16px; height: 16px; border: 1px solid var(--gray); top: 0; left: 0; border-right: none; border-bottom: none;"></span>
+      <span class="hv-bracket tr" style="position: absolute; width: 16px; height: 16px; border: 1px solid var(--gray); top: 0; right: 0; border-left: none; border-bottom: none;"></span>
+      <span class="hv-bracket bl" style="position: absolute; width: 16px; height: 16px; border: 1px solid var(--gray); bottom: 0; left: 0; border-right: none; border-top: none;"></span>
+      <span class="hv-bracket br" style="position: absolute; width: 16px; height: 16px; border: 1px solid var(--gray); bottom: 0; right: 0; border-left: none; border-top: none;"></span>
+
+      <div class="hv-top" style="display: flex; justify-content: space-between; align-items: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray); letter-spacing: 0.1em; line-height: 1.4;">
+        <div>
+          <div class="hero-visual-text">EDITION 01</div>
+          <div class="hero-visual-text" style="margin-top:8px; color: {{ component.bg_color|default('var(--cream)') }};">RIYADH · 2026</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="hero-visual-text">PLAYBOOK SERIES</div>
+          <div style="font-family:'JetBrains Mono', monospace; font-size:11px; color:{{ component.accent_color|default('var(--coral)') }}; letter-spacing:0.25em; margin-top:8px; font-weight:700;">01 · 02 · 03</div>
+        </div>
       </div>
-      <div class="hv-stack">
-        <div class="pre">The New</div>
-        <div class="word-1">MIND</div>
-        <div class="word-2">ACADEMY</div>
-        <div class="word-3">EST. 2024</div>
+
+      <div class="hv-stack" style="display: flex; flex-direction: column; font-family: -apple-system, sans-serif; line-height: 0.85; margin: 40px 0;">
+        <div class="pre" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px; color: var(--gray); margin-bottom: 16px; line-height: 1;">a studio of</div>
+        <div class="word-1" style="font-size: min(9vw, 84px); font-weight: 900; letter-spacing: -0.04em; color: {{ component.text_color|default('var(--ink)') }};">DESIGN</div>
+        <div class="word-2" style="font-size: min(9vw, 84px); font-weight: 900; letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 1px {{ component.text_color|default('var(--ink)') }};">AI</div>
+        <div class="word-3" style="font-size: min(9vw, 84px); font-weight: 900; letter-spacing: -0.04em; color: {{ component.text_color|default('var(--ink)') }};">ACADEMY</div>
       </div>
-      <div class="hv-quote serif">
-        "التصميم ليس مجرد شكل، بل هو طريقة تفكير تجمع بين العقل والآلة"
+
+      <div>
+        <div class="hv-rule" style="width: 100%; height: 1px; background: var(--gray); opacity: 0.3; margin-bottom: 16px;"></div>
+        <div class="hv-quote" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: {{ component.text_color|default('var(--ink)') }}; max-width: 200px;">«النظام يتفوّق<br>على الموهبة».</div>
       </div>
     </div>
   </div>
 </section>
+<style>
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+}
+</style>
