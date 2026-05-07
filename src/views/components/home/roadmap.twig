@@ -90,19 +90,21 @@
       
       {% set channels = component.channels ?: default_channels %}
       {% for channel in channels %}
-        <div style="background:{{ channel['channels.bg'] }}; color:{{ channel['channels.text_color'] }}; padding:36px 28px; position:relative; {{ channel['channels.featured'] ? 'box-shadow:0 12px 32px rgba(232,85,68,0.18);' : 'border:1px solid var(--hairline);' }}">
-          <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--coral); letter-spacing:0.25em; font-weight:700; margin-bottom:14px;">{{ channel['channels.label'] }}</div>
-          <h3 style="font-size:24px; font-weight:800; line-height:1.2; margin-bottom:6px;">{{ channel['channels.title'] }}</h3>
-          <p style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:{{ channel['channels.featured'] ? 'var(--tan)' : 'var(--warm-tan)' }}; margin-bottom:18px;">{{ channel['channels.subtitle'] }}</p>
-          <div style="width:24px; height:1px; background:var(--coral); margin-bottom:18px;"></div>
-          <p style="font-size:13.5px; line-height:1.65; opacity:0.88; margin-bottom:18px;">
-            {{ channel['channels.desc'] }}
-          </p>
-          <div style="border-top:0.5px dashed {{ channel['channels.featured'] ? 'rgba(255,255,255,0.2)' : 'var(--hairline)' }}; padding-top:14px; font-family:'JetBrains Mono', monospace; font-size:10px; color:{{ channel['channels.featured'] ? 'var(--tan)' : 'var(--warm-tan)' }}; letter-spacing:0.15em;">
-            {{ channel['channels.footer'] }}
+        {% if channel['channels.title'] or not component.channels %}
+          <div style="background:{{ channel['channels.bg'] }}; color:{{ channel['channels.text_color'] }}; padding:36px 28px; position:relative; {{ channel['channels.featured'] ? 'box-shadow:0 12px 32px rgba(232,85,68,0.18);' : 'border:1px solid var(--hairline);' }}">
+            <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--coral); letter-spacing:0.25em; font-weight:700; margin-bottom:14px;">{{ channel['channels.label'] }}</div>
+            <h3 style="font-size:24px; font-weight:800; line-height:1.2; margin-bottom:6px;">{{ channel['channels.title'] }}</h3>
+            <p style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px; color:{{ channel['channels.featured'] ? 'var(--tan)' : 'var(--warm-tan)' }}; margin-bottom:18px;">{{ channel['channels.subtitle'] }}</p>
+            <div style="width:24px; height:1px; background:var(--coral); margin-bottom:18px;"></div>
+            <p style="font-size:13.5px; line-height:1.65; opacity:0.88; margin-bottom:18px;">
+              {{ channel['channels.desc'] }}
+            </p>
+            <div style="border-top:0.5px dashed {{ channel['channels.featured'] ? 'rgba(255,255,255,0.2)' : 'var(--hairline)' }}; padding-top:14px; font-family:'JetBrains Mono', monospace; font-size:10px; color:{{ channel['channels.featured'] ? 'var(--tan)' : 'var(--warm-tan)' }}; letter-spacing:0.15em;">
+              {{ channel['channels.footer'] }}
+            </div>
+            <div style="position:absolute; top:18px; right:18px; background:{{ channel['channels.featured'] ? 'var(--coral)' : 'var(--ink)' }}; color:var(--cream); padding:4px 10px; font-family:'JetBrains Mono', monospace; font-size:9px; font-weight:700; letter-spacing:0.18em;">{{ channel['channels.badge'] }}</div>
           </div>
-          <div style="position:absolute; top:18px; right:18px; background:{{ channel['channels.featured'] ? 'var(--coral)' : 'var(--ink)' }}; color:var(--cream); padding:4px 10px; font-family:'JetBrains Mono', monospace; font-size:9px; font-weight:700; letter-spacing:0.18em;">{{ channel['channels.badge'] }}</div>
-        </div>
+        {% endif %}
       {% endfor %}
     </div>
 

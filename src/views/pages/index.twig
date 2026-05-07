@@ -7,8 +7,7 @@
 #}
 {% extends "layouts.master" %}
 {% block content %}
-    {% include 'components.home.mind-hero' %}
-    
+    {# We removed the include hero to prevent doubling, Salla will add it via the component loop #}
     {% component home %}
 {% endblock %}
 {% block scripts %}

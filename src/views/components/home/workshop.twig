@@ -47,10 +47,12 @@
           
           {% set items = component.features ?: default_features %}
           {% for item in items %}
-            <li style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 17px; line-height: 1.4; color: {{ component.desc_color|default('#F7EDE3') }};">
-              <span class="check" style="color: var(--coral); font-weight: bold;">✓</span>
-              <span>{{ item['features.text'] }}</span>
-            </li>
+            {% if item['features.text'] or not component.features %}
+              <li style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 17px; line-height: 1.4; color: {{ component.desc_color|default('#F7EDE3') }};">
+                <span class="check" style="color: var(--coral); font-weight: bold;">✓</span>
+                <span>{{ item['features.text'] }}</span>
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
       </div>

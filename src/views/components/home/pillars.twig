@@ -37,22 +37,24 @@
       
       {% set items = component.pillars ?: default_pillars %}
       {% for pillar in items %}
-        <div class="pillar" style="display: flex; gap: 24px;">
-          <div class="pillar-num" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 28px; color: var(--coral); flex-shrink: 0; line-height: 1;">
-            {{ pillar['pillars.num'] }}
-          </div>
-          <div class="pillar-content">
-            <div class="label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: 0.15em; margin-bottom: 4px;">
-              {{ pillar['pillars.label'] }}
+        {% if pillar['pillars.title'] or not component.pillars %}
+          <div class="pillar" style="display: flex; gap: 24px;">
+            <div class="pillar-num" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 28px; color: var(--coral); flex-shrink: 0; line-height: 1;">
+              {{ pillar['pillars.num'] }}
             </div>
-            <h3 style="font-size: 18px; margin-bottom: 8px; font-weight: 600; color: {{ component.title_color|default('#F7EDE3') }};">
-              {{ pillar['pillars.title'] }}
-            </h3>
-            <p style="color: {{ component.tagline_color|default('#C89469') }}; font-size: 14px; line-height: 1.6;">
-              {{ pillar['pillars.desc'] }}
-            </p>
+            <div class="pillar-content">
+              <div class="label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: 0.15em; margin-bottom: 4px;">
+                {{ pillar['pillars.label'] }}
+              </div>
+              <h3 style="font-size: 18px; margin-bottom: 8px; font-weight: 600; color: {{ component.title_color|default('#F7EDE3') }};">
+                {{ pillar['pillars.title'] }}
+              </h3>
+              <p style="color: {{ component.tagline_color|default('#C89469') }}; font-size: 14px; line-height: 1.6;">
+                {{ pillar['pillars.desc'] }}
+              </p>
+            </div>
           </div>
-        </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
