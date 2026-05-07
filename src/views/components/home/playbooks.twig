@@ -1,10 +1,16 @@
+{#
+| Variable        | Type       | Description                    |
+|-----------------|------------|--------------------------------|
+| title           | string     | Section title                  |
+| description     | string     | Section description            |
+| products        | Products[] | List of products               |
+#}
 <section class="playbooks mt-16 sm:mt-24">
   <div class="container">
     <div class="section-label">DESIGN AI PLAYBOOKS · الأدلّة التطبيقية</div>
-    <h2 class="section-title">مناهج مكثّفة<br>للمصمّم الـ AI-Native.</h2>
+    <h2 class="section-title">{{ title|raw|default('مناهج مكثّفة<br>للمصمّم الـ AI-Native.') }}</h2>
     <p style="font-size:17px; color:var(--soft-ink); max-width:680px; line-height:1.7;">
-      كل Playbook مدرسة قائمة بذاتها — منهجية مكتملة، أدوات مختارة بعناية، Prompts جاهزة،
-      Case Study حقيقية، وملاحق مرجعية. تُستخدم بشكل مستقل أو كسلسلة متكاملة.
+      {{ description|raw|default('كل Playbook مدرسة قائمة بذاتها — منهجية مكتملة، أدوات مختارة بعناية، Prompts جاهزة، Case Study حقيقية، وملاحق مرجعية. تُستخدم بشكل مستقل أو كسلسلة متكاملة.') }}
     </p>
     
     <div class="playbooks-grid">

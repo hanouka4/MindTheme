@@ -1088,6 +1088,156 @@
                     "maxLength": 30
                 }
             ]
+        },
+        {
+            "key": "mind-academy-playbooks",
+            "title": {
+                "en": "MiND Academy Playbooks",
+                "ar": "أدلة مايند أكاديمية"
+            },
+            "icon": "sicon-books",
+            "path": "home.playbooks",
+            "fields": [
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "العنوان",
+                    "multilanguage": true,
+                    "value": "مناهج مكثّفة<br>للمصمّم الـ AI-Native."
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "الوصف",
+                    "multilanguage": true,
+                    "value": "كل Playbook مدرسة قائمة بذاتها — منهجية مكتملة، أدوات مختارة بعناية، Prompts جاهزة، Case Study حقيقية، وملاحق مرجعية. تُستخدم بشكل مستقل أو كسلسلة متكاملة."
+                },
+                {
+                    "id": "products",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "المنتجات (Playbooks)",
+                    "source": "products",
+                    "multichoice": true,
+                    "maxLength": 3
+                }
+            ]
+        },
+        {
+            "key": "mind-academy-philosophy",
+            "title": {
+                "en": "MiND Academy Philosophy",
+                "ar": "فلسفة مايند أكاديمية"
+            },
+            "icon": "sicon-chat-bubbles",
+            "path": "home.wisdom",
+            "fields": [
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "العنوان",
+                    "multilanguage": true,
+                    "value": "ثلاث قواعد<br>تحكم كل شيء."
+                },
+                {
+                    "id": "rules",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "القواعد",
+                    "item_label": "قاعدة",
+                    "value": [
+                        {
+                            "rules.text": "النظام يتفوّق على الموهبة لأن الموهبة تعمل ساعات والنظام يعمل 24/7.",
+                            "rules.attribution": "—  Playbook 01  ·  Floor Plan"
+                        },
+                        {
+                            "rules.text": "الرندر الواحد لا يبيع. الأربعة رندرز المتسلسلة تبيع. هذي ليست تقنية — بل سرديّة بصرية.",
+                            "rules.attribution": "—  Playbook 02  ·  Render"
+                        },
+                        {
+                            "rules.text": "الاستوديو الذي يبني نفسه = الاستوديو الذي ينمو وأنت نائم. النظام هو ما يفصل المحترف عن الموظف.",
+                            "rules.attribution": "—  Playbook 03  ·  Studio Build"
+                        }
+                    ],
+                    "fields": [
+                        {
+                            "id": "rules.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "النص",
+                            "multilanguage": true
+                        },
+                        {
+                            "id": "rules.attribution",
+                            "type": "string",
+                            "format": "text",
+                            "label": "المصدر/التذييل",
+                            "multilanguage": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "mind-academy-workshop",
+            "title": {
+                "en": "MiND Academy Workshop",
+                "ar": "ورشة مايند أكاديمية"
+            },
+            "icon": "sicon-briefcase",
+            "path": "home.workshop",
+            "fields": [
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "العنوان",
+                    "multilanguage": true,
+                    "value": "أربعة أيام<br>تبني استوديوك."
+                },
+                {
+                    "id": "tagline",
+                    "type": "string",
+                    "format": "text",
+                    "label": "العنوان الفرعي",
+                    "multilanguage": true,
+                    "value": "The Live Application — 4 Intensive Days."
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "الوصف",
+                    "multilanguage": true,
+                    "value": "أربعة أيام تطبيقيّة حضوريّة بقيادة فريق MiND، في مجموعة محدودة بدعوة. الورشة تشمل الأدلّة الثلاث مجاناً + تطبيقاً كاملاً على مشروعك + مجتمع المتدرّبين."
+                },
+                {
+                    "id": "features",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "المزايا/المحاور",
+                    "item_label": "مزية",
+                    "value": [
+                        { "features.text": "تطبيق كامل على مشروعك بقيادة فريق MiND" },
+                        { "features.text": "متابعة شخصية من فريق MiND طوال 4 أيام" },
+                        { "features.text": "Setup كامل لاستوديو AI شخصي — أدوات وقوالب جاهزة" },
+                        { "features.text": "مجتمع المتدرّبين + متابعة 30 يوماً" },
+                        { "features.text": "أولوية حضور لمشتري الـ Design AI Playbooks" }
+                    ],
+                    "fields": [
+                        {
+                            "id": "features.text",
+                            "type": "string",
+                            "format": "text",
+                            "label": "النص",
+                            "multilanguage": true
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "support_url": "https://salla.com/",
