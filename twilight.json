@@ -1,10 +1,10 @@
 {
     "name": {
-        "ar": "رائد",
-        "en": "Theme Raed"
+        "ar": "أكاديمية مايند",
+        "en": "MiND Academy"
     },
     "repository": "https://github.com/SallaApp/theme-raed",
-    "author_email": "support@salla.sa",
+    "author_email": "support@mindacademy.ai",
     "features": [
         "mega-menu",
         "fonts",
