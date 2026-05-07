@@ -1,0 +1,31 @@
+{#
+| Variable        | Type       | Description                    |
+|-----------------|------------|--------------------------------|
+| component       | object     | Component fields               |
+#}
+<section class="program" id="program" style="background: {{ component.bg_color|default('var(--ink)') }}; color: {{ component.text_color|default('var(--cream)') }}; padding: 100px 40px;">
+  <div class="container" style="max-width: 1280px; margin: 0 auto;">
+    <div class="section-label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--coral); margin-bottom: 24px;">{{ component.label|default('PROGRAM PILLARS · ركائز البرنامج') }}</div>
+    <h2 class="section-title" style="font-size: 40px; line-height: 1.1; margin-bottom: 24px; color: {{ component.text_color|default('var(--cream)') }}; font-weight: 800;">{{ component.title|raw|default('أربع ركائز<br>تبني استوديو متكامل.') }}</h2>
+    <p class="section-tagline" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; color: var(--tan); margin-bottom: 32px;">{{ component.tagline|default('Four pillars. One operating studio.') }}</p>
+    <div class="section-rule" style="width: 60px; height: 1px; background: var(--hairline); margin-bottom: 40px;"></div>
+    
+    <div class="pillars" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; max-width: 1100px;">
+      {% for pillar in component.pillars %}
+        <div class="pillar" style="display: flex; gap: 24px;">
+          <div class="pillar-num" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 28px; color: var(--coral); flex-shrink: 0; line-height: 1;">{{ pillar.num }}</div>
+          <div class="pillar-content">
+            <div class="label" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--coral); letter-spacing: 0.15em; margin-bottom: 4px;">{{ pillar.label }}</div>
+            <h3 style="font-size: 18px; margin-bottom: 8px; font-weight: 600;">{{ pillar.title }}</h3>
+            <p style="color: var(--tan); font-size: 14px; line-height: 1.6;">{{ pillar.desc }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<style>
+@media (max-width: 768px) {
+  .pillars { grid-template-columns: 1fr !important; }
+}
+</style>
