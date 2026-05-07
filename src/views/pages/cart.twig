@@ -31,7 +31,7 @@
                 <section class="cart-item-custom">
                     <input type="hidden" name="id" value="{{ item.id }}">
                     
-                    <div class="num">{{ loop.index|format_number({minimum_integer_digits: 2}) }}</div>
+                    <div class="num">{{ loop.index < 10 ? '0' ~ loop.index : loop.index }}</div>
                     
                     <div class="info">
                         <h3><a href="{{ item.url }}">{{ item.product_name }}</a></h3>
@@ -48,8 +48,7 @@
                     </div>
 
                     <div class="price-box">
-                        <div class="amt">{{ item.total|money_without_currency }}</div>
-                        <span class="ccy">{{ store.currency }}</span>
+                        <div class="amt">{{ item.total|money }}</div>
                     </div>
 
                     <div class="actions" style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end;">
@@ -132,7 +131,7 @@
 
             <div class="total-row-custom">
                 <span class="label">TOTAL  ·  {{ trans('pages.cart.final_total') }}</span>
-                <span><span class="amt">{{ cart.total|money_without_currency }}</span><span class="ccy">{{ store.currency }}</span></span>
+                <span><span class="amt">{{ cart.total|money }}</span></span>
             </div>
 
             <div class="cart-submit-wrap">
