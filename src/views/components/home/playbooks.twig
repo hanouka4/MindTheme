@@ -1,20 +1,21 @@
 {#
 | Variable        | Type       | Description                    |
 |-----------------|------------|--------------------------------|
-| title           | string     | Section title                  |
-| description     | string     | Section description            |
+| component       | object     | Component fields               |
 | products        | Products[] | List of products               |
 #}
 <section class="playbooks mt-16 sm:mt-24">
   <div class="container">
     <div class="section-label">DESIGN AI PLAYBOOKS · الأدلّة التطبيقية</div>
-    <h2 class="section-title">{{ title|raw|default('مناهج مكثّفة<br>للمصمّم الـ AI-Native.') }}</h2>
+    <h2 class="section-title">{{ component.title|raw|default('مناهج مكثّفة<br>للمصمّم الـ AI-Native.') }}</h2>
     <p style="font-size:17px; color:var(--soft-ink); max-width:680px; line-height:1.7;">
-      {{ description|raw|default('كل Playbook مدرسة قائمة بذاتها — منهجية مكتملة، أدوات مختارة بعناية، Prompts جاهزة، Case Study حقيقية، وملاحق مرجعية. تُستخدم بشكل مستقل أو كسلسلة متكاملة.') }}
+      {{ component.description|raw|default('كل Playbook مدرسة قائمة بذاتها — منهجية مكتملة، أدوات مختارة بعناية، Prompts جاهزة، Case Study حقيقية، وملاحق مرجعية. تُستخدم بشكل مستقل أو كسلسلة متكاملة.') }}
     </p>
     
     <div class="playbooks-grid">
-      {% for product in products %}
+      {# If added via editor, products might be in component.products #}
+      {% set playbook_items = component.products ?: products %}
+      {% for product in playbook_items %}
         <custom-salla-product-card product="{{ product|json_encode }}" isPlaybook></custom-salla-product-card>
       {% endfor %}
     </div>

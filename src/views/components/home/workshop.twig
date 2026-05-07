@@ -1,27 +1,24 @@
 {#
 | Variable        | Type       | Description                    |
 |-----------------|------------|--------------------------------|
-| title           | string     | Section title                  |
-| tagline         | string     | Section tagline                |
-| description     | string     | Section description            |
-| features        | array      | List of features               |
+| component       | object     | Component fields               |
 #}
 <section class="workshop" id="workshop">
   <div class="container">
     <div class="workshop-inner">
       <div>
         <div class="section-label">STUDIO BUILD WORKSHOP · الورشة الحضورية</div>
-        <h2 class="section-title" style="color: var(--cream);">{{ title|raw|default('أربعة أيام<br>تبني استوديوك.') }}</h2>
-        <p class="section-tagline">{{ tagline|default('The Live Application — 4 Intensive Days.') }}</p>
+        <h2 class="section-title" style="color: var(--cream);">{{ component.title|raw|default('أربعة أيام<br>تبني استوديوك.') }}</h2>
+        <p class="section-tagline">{{ component.tagline|default('The Live Application — 4 Intensive Days.') }}</p>
         <div class="section-rule"></div>
         <p style="font-size:17px; line-height:1.7; color:var(--cream); margin-bottom:32px;">
-          {{ description|raw|default('أربعة أيام تطبيقيّة حضوريّة بقيادة فريق MiND، في مجموعة محدودة بدعوة. الورشة تشمل الأدلّة الثلاث مجاناً + تطبيقاً كاملاً على مشروعك + مجتمع المتدرّبين.') }}
+          {{ component.description|raw|default('أربعة أيام تطبيقيّة حضوريّة بقيادة فريق MiND، في مجموعة محدودة بدعوة. الورشة تشمل الأدلّة الثلاث مجاناً + تطبيقاً كاملاً على مشروعك + مجتمع المتدرّبين.') }}
         </p>
         <a href="{{ link('products') }}" class="btn btn-primary" style="background:var(--coral);">صفحة الورشة الكاملة  ←</a>
       </div>
       <div>
         <ul class="workshop-features">
-          {% for feature in features %}
+          {% for feature in component.features %}
             <li><span class="check">✓</span><span>{{ feature.text }}</span></li>
           {% endfor %}
         </ul>

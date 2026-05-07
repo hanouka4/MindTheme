@@ -177,6 +177,11 @@ class ProductCard extends HTMLElement {
   }
 
   render(){
+    if (!this.product) {
+      this.innerHTML = '';
+      return;
+    }
+
     if (this.isPlaybook) {
       this.classList.add('playbook-card');
       const num = this.product?.sku || '01'; // Use SKU as the number if available

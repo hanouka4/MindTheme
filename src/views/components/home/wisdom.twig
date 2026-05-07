@@ -1,15 +1,14 @@
 {#
 | Variable        | Type       | Description                    |
 |-----------------|------------|--------------------------------|
-| title           | string     | Section title                  |
-| rules           | array      | Philosophy rules               |
+| component       | object     | Component fields               |
 #}
 <section class="wisdom">
   <div class="container" style="max-width: 1100px;">
     <div class="section-label">PHILOSOPHY  ·  المنهج</div>
-    <h2 class="section-title" style="margin-bottom: 60px;">{{ title|raw|default('ثلاث قواعد<br>تحكم كل شيء.') }}</h2>
+    <h2 class="section-title" style="margin-bottom: 60px;">{{ component.title|raw|default('ثلاث قواعد<br>تحكم كل شيء.') }}</h2>
     <div class="wisdom-grid">
-      {% for item in rules %}
+      {% for item in component.rules %}
         <div class="wisdom-item">
           <div class="wisdom-quote-mark">"</div>
           <div class="wisdom-content">
