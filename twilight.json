@@ -236,6 +236,16 @@
             "required": false,
             "value": false,
             "selected": false
+        },
+        {
+            "id": "playbooks_category",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "تصنيف الأدلّة التطبيقية (Playbooks)",
+            "description": "اختر التصنيف الذي يحتوي على الـ Playbooks ليتم عرضه في الصفحة الرئيسية",
+            "icon": "sicon-list",
+            "source": "categories",
+            "required": false
         }
     ],
     "components": [

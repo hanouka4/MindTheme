@@ -157,6 +157,11 @@ class ProductCard extends HTMLElement {
     this.isSpecial = this.hasAttribute('isSpecial');
   
     /**
+     *  Playbook card.
+     */
+    this.isPlaybook = this.hasAttribute('isPlaybook') || this.product?.tags?.some(tag => tag.name.toLowerCase() === 'playbook');
+  
+    /**
      *  Show quantity.
      */
     this.showQuantity = this.hasAttribute('showQuantity');
@@ -172,6 +177,29 @@ class ProductCard extends HTMLElement {
   }
 
   render(){
+    if (this.isPlaybook) {
+      this.classList.add('playbook-card');
+      const num = this.product?.sku || '01'; // Use SKU as the number if available
+      const enTitle = this.product?.subtitle || 'Design AI Playbook';
+      
+      this.innerHTML = `
+        <div class="playbook-num">${num}</div>
+        <h3>${this.product.name}</h3>
+        <p class="en">${enTitle}</p>
+        <p>${this.product.description.replace(/<[^>]*>?/gm, '').substring(0, 150)}...</p>
+        <div class="playbook-price">
+          <span class="amount">${this.product.price}</span>
+          <span class="currency">${this.product.currency}</span>
+        </div>
+        <div class="playbook-meta">
+          <span>EDITION 01</span>
+          <strong>${this.product.is_out_of_stock ? 'OUT OF STOCK' : 'AVAILABLE'}</strong>
+        </div>
+        <a href="${this.product.url}" class="absolute inset-0 z-10"></a>
+      `;
+      return;
+    }
+
     this.classList.add('s-product-card-entry'); 
     this.setAttribute('id', this.product.id);
     !this.horizontal && !this.fullImage && !this.minimal? this.classList.add('s-product-card-vertical') : '';

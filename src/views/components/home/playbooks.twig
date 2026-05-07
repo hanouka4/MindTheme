@@ -1,0 +1,25 @@
+<section class="playbooks mt-16 sm:mt-24">
+  <div class="container">
+    <div class="section-label">DESIGN AI PLAYBOOKS · الأدلّة التطبيقية</div>
+    <h2 class="section-title">مناهج مكثّفة<br>للمصمّم الـ AI-Native.</h2>
+    <p style="font-size:17px; color:var(--soft-ink); max-width:680px; line-height:1.7;">
+      كل Playbook مدرسة قائمة بذاتها — منهجية مكتملة، أدوات مختارة بعناية، Prompts جاهزة،
+      Case Study حقيقية، وملاحق مرجعية. تُستخدم بشكل مستقل أو كسلسلة متكاملة.
+    </p>
+    
+    <div class="playbooks-grid">
+      {% for product in products %}
+        <custom-salla-product-card product="{{ product|json_encode }}" isPlaybook></custom-salla-product-card>
+      {% endfor %}
+    </div>
+
+    <div style="margin-top:60px; padding:32px; background:var(--light-bg); border-right:4px solid var(--coral); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <div class="section-label" style="margin-bottom:8px;">FULL SERIES · السلسلة الكاملة</div>
+        <h3 style="font-size:24px; font-weight:600;">الـ 3 Playbooks مجتمعة — للمصمّم الذي يبني وحده</h3>
+        <p style="color:var(--soft-ink); font-size:14px; margin-top:8px; line-height:1.6;">هل تفضّل التطبيق بقيادة فريق MiND؟ الورشة الحضوريّة تشمل الأدلّة الثلاث مجاناً.</p>
+      </div>
+      <a href="{{ link('products') }}" class="btn btn-primary">للاستفسار  ←</a>
+    </div>
+  </div>
+</section>

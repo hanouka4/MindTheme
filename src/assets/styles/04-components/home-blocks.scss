@@ -153,6 +153,180 @@
   font-weight: 600;
 }
 
+/* === PLAYBOOKS GRID === */
+.playbooks-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+@media (min-width: 768px) {
+  .playbooks-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.playbook-card {
+  background: var(--cream);
+  border: 1px solid var(--hairline);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-align: right;
+}
+.playbook-card:hover {
+  border-color: var(--coral);
+  transform: translateY(-4px);
+}
+.playbook-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--coral);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.playbook-card:hover::before {
+  transform: scaleX(1);
+}
+.playbook-num {
+  font-size: 96px;
+  font-weight: 900;
+  color: var(--coral);
+  line-height: 0.9;
+  margin-bottom: 16px;
+  font-family: -apple-system, sans-serif;
+}
+.playbook-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.playbook-card .en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--warm-tan);
+  font-size: 14px;
+  margin-bottom: 24px;
+  direction: ltr;
+  text-align: left;
+}
+.playbook-card p {
+  font-size: 14px;
+  color: var(--soft-ink);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+.playbook-price {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.playbook-price .currency {
+  font-size: 14px;
+  color: var(--warm-tan);
+  font-weight: 400;
+}
+.playbook-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--gray);
+  border-top: 0.5px solid var(--hairline);
+  padding-top: 16px;
+}
+.playbook-meta strong {
+  color: var(--green);
+}
+
+/* === WISDOM / PHILOSOPHY === */
+.wisdom {
+  background: var(--cream);
+  padding: 120px 40px;
+  border-top: 0.5px solid var(--hairline);
+}
+.wisdom-grid {
+  display: grid;
+  gap: 80px;
+}
+.wisdom-item {
+  display: grid;
+  grid-template-columns: 0.5fr 6fr;
+  gap: 32px;
+  align-items: start;
+}
+.wisdom-quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 96px;
+  color: var(--coral);
+  line-height: 1;
+}
+.wisdom-content p:first-child {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(24px, 3vw, 32px);
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.wisdom-content p:last-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--warm-tan);
+  letter-spacing: 0.15em;
+}
+
+/* === WORKSHOP === */
+.workshop {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 120px 40px;
+}
+.workshop-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .workshop-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.workshop-features {
+  list-style: none;
+}
+.workshop-features li {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 1.4;
+}
+.workshop-features .check {
+  color: var(--coral);
+  font-weight: bold;
+}
+
 /*
   Block Title
 */

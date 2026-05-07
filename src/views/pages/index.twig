@@ -8,6 +8,15 @@
 {% extends "layouts.master" %}
 {% block content %}
     {% component 'home.mind-hero' %}
+    
+    {# Playbooks section #}
+    {% set playbooks_products = products({'limit': 3, 'category': theme.settings.get('playbooks_category')}) %}
+    {% include 'components.home.playbooks' with {products: playbooks_products} %}
+
+    {% include 'components.home.wisdom' %}
+    
+    {% include 'components.home.workshop' %}
+
     {% component home %}
 {% endblock %}
 {% block scripts %}

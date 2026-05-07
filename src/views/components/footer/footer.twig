@@ -1,25 +1,26 @@
-<footer class="footer">
+<footer class="footer" id="contact">
   <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="logo">
-        <div class="logo-dot"></div>
-        <span class="logo-text"><span class="logo-academy" style="color:var(--tan)">MiND</span> ACADEMY</span>
+    <div>
+      <div class="logo" style="margin-bottom:24px;">
+        <span class="logo-dot"></span>
+        <span class="logo-text" style="color:var(--cream);">MiND <span class="logo-academy">· Academy</span></span>
       </div>
-      <p style="margin-top:24px; font-size:14px; color:var(--tan); max-width:320px;">
-        {{ store.description|raw|default('The official Design AI Studio. We explore the boundaries of creativity and technology.') }}
+      <p style="color:var(--tan); font-style:italic; font-family:'Cormorant Garamond', serif; font-size:18px; max-width:340px; line-height:1.5;">
+        {{ store.description|raw|default('Studio of AI-Native Interior Design. Riyadh, 2026.') }}
       </p>
     </div>
-    <div class="footer-nav">
-      <h4>RESOURCES</h4>
-      <salla-menu source="footer"></salla-menu>
+    <div>
+      <h4>ADMISSION · للحجز</h4>
+      <a href="mailto:{{ store.contacts.email }}">{{ store.contacts.email }}</a>
+      <a href="tel:{{ store.contacts.mobile }}">{{ store.contacts.mobile }}</a>
+      <a href="{{ store.url }}">{{ store.url|replace({'https://': '', 'http://': ''}) }}</a>
     </div>
-    <div class="footer-nav">
-      <h4>CONNECT</h4>
-      <salla-social></salla-social>
+    <div>
+      <h4>EXPLORE</h4>
+      <salla-menu source="footer"></salla-menu>
     </div>
   </div>
   <div class="footer-bottom">
-    <div>© {{ "now"|date("Y") }} {{ store.name|upper }}. ALL RIGHTS RESERVED.</div>
-    <div>MADE BY MiND STUDIO</div>
+    MIND ACADEMY · DESIGN AI · EDITION 01 / 2026 · {{ store.city|default('RIYADH')|upper }}
   </div>
 </footer>
