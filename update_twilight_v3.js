@@ -7,8 +7,10 @@ const PILLARS_KEY = 'c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f';
 const PLAYBOOKS_KEY = '7d5b8e9a-4c12-4f31-8e9a-5c124f318e9a';
 const PHILOSOPHY_KEY = '8e6c9f0b-5d23-5a42-9f0b-6d235a429f0b';
 const WORKSHOP_KEY = '9f7d0a1c-6e34-6b53-a01c-7e346b53a01c';
+const PLAYBOOKS_HERO_KEY = 'd4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a';
+const WORKSHOP_HERO_KEY = 'e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b';
 
-data.components = data.components.filter(c => ![HERO_KEY, ROADMAP_KEY, PILLARS_KEY, PLAYBOOKS_KEY, PHILOSOPHY_KEY, WORKSHOP_KEY].includes(c.key));
+data.components = data.components.filter(c => ![HERO_KEY, ROADMAP_KEY, PILLARS_KEY, PLAYBOOKS_KEY, PHILOSOPHY_KEY, WORKSHOP_KEY, PLAYBOOKS_HERO_KEY, WORKSHOP_HERO_KEY].includes(c.key));
 
 function getTypographyFields(prefix, defaults = {}) {
     return [
@@ -261,6 +263,41 @@ data.components.push({
                 { id: 'features.text', type: 'string', format: 'text', label: 'النص' }
             ]
         }
+    ]
+});
+
+// PLAYBOOKS HERO (LANDING)
+data.components.push({
+    key: PLAYBOOKS_HERO_KEY,
+    title: { en: 'Playbooks Landing Hero', ar: 'مقدمة صفحة الأدلّة' },
+    icon: 'sicon-image',
+    path: 'home.playbooks-hero',
+    fields: [
+        { id: 'bg_color', type: 'string', format: 'color', label: 'Background Color', value: '#F7EDE3' },
+        { id: 'label', type: 'string', format: 'text', label: 'Label', value: 'EDITION 01  ·  PLAYBOOK SERIES' },
+        { id: 'title', type: 'string', format: 'text', label: 'Title', value: 'الأدلّة<br><span class="accent">التطبيقيّة.</span>' },
+        ...getTypographyFields('title', { color: '#1A1A1A', size: '92px', align: 'start' }),
+        { id: 'tagline', type: 'string', format: 'text', label: 'Tagline', value: 'Not a course. Not a theory. Three playbooks that build your AI-Native interior design studio.' },
+        { id: 'quote', type: 'string', format: 'textarea', label: 'Quote', value: '«المصمم الذي لا يملك نظاماً هو مصمم يبيع وقته. المصمم الذي يملك نظاماً هو مصمم يبيع نتيجته».' },
+        { id: 'btn_text', type: 'string', format: 'text', label: 'Button Text', value: 'اقتنِ السلسلة الكاملة  ←' }
+    ]
+});
+
+// WORKSHOP HERO (LANDING)
+data.components.push({
+    key: WORKSHOP_HERO_KEY,
+    title: { en: 'Workshop Landing Hero', ar: 'مقدمة صفحة الورشة' },
+    icon: 'sicon-image',
+    path: 'home.workshop-hero',
+    fields: [
+        { id: 'bg_color', type: 'string', format: 'color', label: 'Background Color', value: '#1A1A1A' },
+        { id: 'text_color', type: 'string', format: 'color', label: 'Text Color', value: '#F7EDE3' },
+        { id: 'label', type: 'string', format: 'text', label: 'Label', value: 'LIVE APPLICATION  ·  4 INTENSIVE DAYS' },
+        { id: 'title', type: 'string', format: 'text', label: 'Title', value: 'الورشة<br><span class="accent">الحضوريّة.</span>' },
+        ...getTypographyFields('title', { color: '#F7EDE3', size: '92px', align: 'start' }),
+        { id: 'tagline', type: 'string', format: 'text', label: 'Tagline', value: 'Four days to build your studio from scratch, led by the MiND team in Riyadh.' },
+        { id: 'quote', type: 'string', format: 'textarea', label: 'Quote', value: '«ليس الهدف تعلّم الأداة، بل بناء الاستوديو الذي يشغّل الأداة».' },
+        { id: 'btn_text', type: 'string', format: 'text', label: 'Button Text', value: 'قدّم للانضمام  ←' }
     ]
 });
 

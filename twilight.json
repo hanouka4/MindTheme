@@ -2382,6 +2382,189 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a",
+            "title": {
+                "en": "Playbooks Landing Hero",
+                "ar": "مقدمة صفحة الأدلّة"
+            },
+            "icon": "sicon-image",
+            "path": "home.playbooks-hero",
+            "fields": [
+                {
+                    "id": "bg_color",
+                    "type": "string",
+                    "format": "color",
+                    "label": "Background Color",
+                    "value": "#F7EDE3"
+                },
+                {
+                    "id": "label",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Label",
+                    "value": "EDITION 01  ·  PLAYBOOK SERIES"
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title",
+                    "value": "الأدلّة<br><span class=\"accent\">التطبيقيّة.</span>"
+                },
+                {
+                    "id": "title_color",
+                    "type": "string",
+                    "format": "color",
+                    "label": "title Color",
+                    "value": "#1A1A1A"
+                },
+                {
+                    "id": "title_size",
+                    "type": "string",
+                    "format": "text",
+                    "label": "title Size (px/rem)",
+                    "value": "92px"
+                },
+                {
+                    "id": "title_align",
+                    "type": "string",
+                    "format": "dropdown-list",
+                    "label": "title Alignment",
+                    "value": "start",
+                    "options": [
+                        {
+                            "label": "Start",
+                            "value": "start"
+                        },
+                        {
+                            "label": "Center",
+                            "value": "center"
+                        },
+                        {
+                            "label": "End",
+                            "value": "end"
+                        }
+                    ]
+                },
+                {
+                    "id": "tagline",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Tagline",
+                    "value": "Not a course. Not a theory. Three playbooks that build your AI-Native interior design studio."
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote",
+                    "value": "«المصمم الذي لا يملك نظاماً هو مصمم يبيع وقته. المصمم الذي يملك نظاماً هو مصمم يبيع نتيجته»."
+                },
+                {
+                    "id": "btn_text",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Button Text",
+                    "value": "اقتنِ السلسلة الكاملة  ←"
+                }
+            ]
+        },
+        {
+            "key": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b",
+            "title": {
+                "en": "Workshop Landing Hero",
+                "ar": "مقدمة صفحة الورشة"
+            },
+            "icon": "sicon-image",
+            "path": "home.workshop-hero",
+            "fields": [
+                {
+                    "id": "bg_color",
+                    "type": "string",
+                    "format": "color",
+                    "label": "Background Color",
+                    "value": "#1A1A1A"
+                },
+                {
+                    "id": "text_color",
+                    "type": "string",
+                    "format": "color",
+                    "label": "Text Color",
+                    "value": "#F7EDE3"
+                },
+                {
+                    "id": "label",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Label",
+                    "value": "LIVE APPLICATION  ·  4 INTENSIVE DAYS"
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title",
+                    "value": "الورشة<br><span class=\"accent\">الحضوريّة.</span>"
+                },
+                {
+                    "id": "title_color",
+                    "type": "string",
+                    "format": "color",
+                    "label": "title Color",
+                    "value": "#F7EDE3"
+                },
+                {
+                    "id": "title_size",
+                    "type": "string",
+                    "format": "text",
+                    "label": "title Size (px/rem)",
+                    "value": "92px"
+                },
+                {
+                    "id": "title_align",
+                    "type": "string",
+                    "format": "dropdown-list",
+                    "label": "title Alignment",
+                    "value": "start",
+                    "options": [
+                        {
+                            "label": "Start",
+                            "value": "start"
+                        },
+                        {
+                            "label": "Center",
+                            "value": "center"
+                        },
+                        {
+                            "label": "End",
+                            "value": "end"
+                        }
+                    ]
+                },
+                {
+                    "id": "tagline",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Tagline",
+                    "value": "Four days to build your studio from scratch, led by the MiND team in Riyadh."
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote",
+                    "value": "«ليس الهدف تعلّم الأداة، بل بناء الاستوديو الذي يشغّل الأداة»."
+                },
+                {
+                    "id": "btn_text",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Button Text",
+                    "value": "قدّم للانضمام  ←"
+                }
+            ]
         }
     ],
     "pages": [
