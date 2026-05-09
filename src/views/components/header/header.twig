@@ -8,8 +8,12 @@
 <header class="header">
   <div class="header-inner">
     <a href="{{ store.url }}" class="logo">
-      <div class="logo-dot"></div>
-      <span class="logo-text"><span class="logo-academy">MiND</span> ACADEMY</span>
+      {% if store.logo %}
+        <img src="{{ store.logo }}" alt="{{ store.name }}" style="max-height: 40px; width: auto;">
+      {% else %}
+        <div class="logo-dot"></div>
+        <span class="logo-text">{{ store.name|upper }}</span>
+      {% endif %}
     </a>
     <nav class="nav">
       {# Salla Menu #}
