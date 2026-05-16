@@ -2567,29 +2567,6 @@
             ]
         }
     ],
-    "locations": [
-        {
-            "id": "home",
-            "title": {
-                "ar": "الصفحة الرئيسية",
-                "en": "Home Page"
-            }
-        },
-        {
-            "id": "landing-playbooks",
-            "title": {
-                "ar": "صفحة الأدلّة",
-                "en": "Playbooks Landing"
-            }
-        },
-        {
-            "id": "landing-workshop",
-            "title": {
-                "ar": "صفحة الورشة",
-                "en": "Workshop Landing"
-            }
-        }
-    ],
     "pages": [
         {
             "id": "landing-playbooks",

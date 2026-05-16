@@ -8,7 +8,7 @@
 {% extends "layouts.master" %}
 {% block content %}
     {# We removed the include hero to prevent doubling, Salla will add it via the component loop #}
-    {% component 'home' %}
+    {% component home %}
 {% endblock %}
 {% block scripts %}
     <script defer src="{{ 'home.js' | asset }}"></script>
