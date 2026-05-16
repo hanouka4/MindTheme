@@ -2589,5 +2589,28 @@
     "description": {
         "ar": "مجموعة كبيرة من المزايا لدعم تجارتك وتقديم تجربة تسوق مثيرة لعملائك",
         "en": "A wide range of features to support your business and provide an exciting shopping experience for your customers"
-    }
+    },
+    "locations": [
+        {
+            "id": "home",
+            "title": {
+                "ar": "الصفحة الرئيسية",
+                "en": "Home Page"
+            }
+        },
+        {
+            "id": "landing-playbooks",
+            "title": {
+                "ar": "صفحة الأدلّة",
+                "en": "Playbooks Landing"
+            }
+        },
+        {
+            "id": "landing-workshop",
+            "title": {
+                "ar": "صفحة الورشة",
+                "en": "Workshop Landing"
+            }
+        }
+    ]
 }
