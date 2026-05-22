@@ -14,7 +14,7 @@
          color: {{ component.title_color|default('#1A1A1A') }}; 
          font-size: {{ component.title_size|default('40px') }}; 
          text-align: {{ component.title_align|default('start') }};">
-      {{ component.title|raw|default('منصّة تُصدر،<br><span style="color:var(--coral);">عاماً بعد عام.</span>') }}
+      {{ component.title|default('منصّة تُصدر،<br><span style="color:var(--coral);">عاماً بعد عام.</span>')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}
     </h2>
 
     <p class="section-tagline" style="font-family: 'Cormorant Garamond', serif; font-style: italic; margin-bottom: 32px;
@@ -32,7 +32,7 @@
            color: {{ component.desc1_color|default('#2E2E2E') }}; 
            font-size: {{ component.desc1_size|default('18px') }}; 
            text-align: {{ component.desc1_align|default('start') }};">
-        {{ component.desc_1|raw|default('MiND Academy ليست دورةً، ولا برنامجاً. هي <strong>منصّة تحريريّة</strong> تُصدر — عاماً بعد عام — أدلّةً وورشاً ومكتباتٍ مرجعيّة بمعايير المؤسسات الكبرى.') }}
+        {{ component.desc_1|default('MiND Academy ليست دورةً، ولا برنامجاً. هي <strong>منصّة تحريريّة</strong> تُصدر — عاماً بعد عام — أدلّةً وورشاً ومكتباتٍ مرجعيّة بمعايير المؤسسات الكبرى.')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}
       </p>
       <p style="font-family:'Cormorant Garamond', serif; font-style:italic; line-height:1.7;
            color: {{ component.desc2_color|default('#B0866A') }}; 
@@ -88,7 +88,7 @@
         }
       ] %}
       
-      {% set channels = component.channels ?: default_channels %}
+      {% set channels = (component.channels and component.channels|length > 0 and component.channels[0]['channels.title']) ? component.channels : default_channels %}
       {% for channel in channels %}
         {% if channel['channels.title'] or not component.channels %}
           <div style="background:{{ channel['channels.bg'] }}; color:{{ channel['channels.text_color'] }}; padding:36px 28px; position:relative; {{ channel['channels.featured'] ? 'box-shadow:0 12px 32px rgba(232,85,68,0.18);' : 'border:1px solid var(--hairline);' }}">
@@ -115,7 +115,7 @@
          padding:40px 48px;">
       <div>
         <div style="font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--coral); letter-spacing:0.25em; font-weight:700; margin-bottom:14px;">MANIFESTO</div>
-        <h3 style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:26px; line-height:1.4;">{{ component.manifesto_ar|raw|default('«MiND ليست مدرسةً تعلّم.<br>هي مكتبة تشغيل للمحترف».') }}</h3>
+        <h3 style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:26px; line-height:1.4;">{{ component.manifesto_ar|default('«MiND ليست مدرسةً تعلّم.<br>هي مكتبة تشغيل للمحترف».')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}</h3>
       </div>
       <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:17px; color:var(--tan); line-height:1.6; text-align:left; direction:ltr;">
         {{ component.manifesto_en|default('"MiND is not a school that teaches. It\'s an operating library for the professional."') }}
