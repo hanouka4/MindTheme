@@ -46,6 +46,7 @@
             <span>{{ card['cards.edition'] }}</span>
             <strong>{{ card['cards.status'] }}</strong>
           </div>
+          <p style="font-size:10px;color:red;word-break:break-all;">DEBUG: url=[{{ card['cards.url'] }}] keys=[{% for key, val in card %}{{ key }}={{ val }},{% endfor %}]</p>
         {% if card_url %}
         </a>
         {% else %}
