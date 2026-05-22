@@ -1275,18 +1275,16 @@
                     "value": "#1A1A1A"
                 },
                 {
-                    "id": "btn_primary_url",
+                    "id": "btn_primary_link",
                     "type": "string",
                     "format": "text",
-                    "label": "Primary Button URL",
-                    "value": ""
+                    "label": "Primary Button URL"
                 },
                 {
-                    "id": "btn_secondary_url",
+                    "id": "btn_secondary_link",
                     "type": "string",
                     "format": "text",
-                    "label": "Secondary Button URL",
-                    "value": ""
+                    "label": "Secondary Button URL"
                 }
             ]
         },
@@ -2115,11 +2113,10 @@
                     "label": "رابط البطاقة الثالثة"
                 },
                 {
-                    "id": "banner_url",
+                    "id": "banner_link",
                     "type": "string",
                     "format": "text",
-                    "label": "رابط الشريط (Banner URL)",
-                    "value": ""
+                    "label": "رابط الشريط (Banner URL)"
                 }
             ]
         },
@@ -2382,11 +2379,10 @@
                     "value": "صفحة الورشة الكاملة  ←"
                 },
                 {
-                    "id": "btn_url",
+                    "id": "btn_link",
                     "type": "string",
                     "format": "text",
-                    "label": "Button URL",
-                    "value": ""
+                    "label": "Button URL"
                 },
                 {
                     "id": "features",
@@ -2509,11 +2505,10 @@
                     "value": "اقتنِ السلسلة الكاملة  ←"
                 },
                 {
-                    "id": "btn_url",
+                    "id": "btn_link",
                     "type": "string",
                     "format": "text",
-                    "label": "Button URL",
-                    "value": ""
+                    "label": "Button URL"
                 }
             ]
         },

@@ -30,7 +30,7 @@
           {{ component.description|default('أربعة أيام تطبيقيّة حضوريّة بقيادة فريق MiND، في مجموعة محدودة بدعوة. الورشة تشمل الأدلّة الثلاث مجاناً + تطبيقاً كاملاً على مشروعك + مجتمع المتدرّبين.')|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw }}
         </p>
         
-        <a href="{{ component.btn_url|default(link('products')) }}" class="btn btn-primary" style="background: {{ component.btn_bg|default('#E85544') }}; color: #F7EDE3;">
+        <a href="{{ component.btn_link|default(link('products')) }}" class="btn btn-primary" style="background: {{ component.btn_bg|default('#E85544') }}; color: #F7EDE3;">
           {{ component.btn_text|default('صفحة الورشة الكاملة  ←') }}
         </a>
       </div>

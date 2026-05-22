@@ -44,10 +44,10 @@
       </p>
 
       <div class="cta-row" style="{{ component.title_align == 'center' ? 'justify-content: center;' : (component.title_align == 'end' ? 'justify-content: flex-end;' : '') }}">
-        <a href="{{ component.btn_primary_url|default(link('products')) }}" class="btn btn-primary" style="background: {{ component.btn_primary_bg|default('#1A1A1A') }}; color: {{ component.btn_primary_color|default('#F7EDE3') }};">
+        <a href="{{ component.btn_primary_link|default(link('products')) }}" class="btn btn-primary" style="background: {{ component.btn_primary_bg|default('#1A1A1A') }}; color: {{ component.btn_primary_color|default('#F7EDE3') }};">
           {{ component.btn_primary_text|default('اطّلع على الـ Playbooks  ←') }}
         </a>
-        <a href="{{ component.btn_secondary_url|default(link('products')) }}" class="btn btn-secondary" style="background: {{ component.btn_secondary_bg|default('transparent') }}; color: {{ component.btn_secondary_color|default('#1A1A1A') }}; border-color: {{ component.btn_secondary_color|default('#1A1A1A') }};">
+        <a href="{{ component.btn_secondary_link|default(link('products')) }}" class="btn btn-secondary" style="background: {{ component.btn_secondary_bg|default('transparent') }}; color: {{ component.btn_secondary_color|default('#1A1A1A') }}; border-color: {{ component.btn_secondary_color|default('#1A1A1A') }};">
           {{ component.btn_secondary_text|default('الورشة الحضورية') }}
         </a>
       </div>
