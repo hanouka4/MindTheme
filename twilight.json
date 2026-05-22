@@ -2020,7 +2020,7 @@
                             "cards.currency": "ر.س",
                             "cards.edition": "EDITION 01",
                             "cards.status": "AVAILABLE",
-                            "cards.url": null
+                            "cards.link": ""
                         },
                         {
                             "cards.num": "02",
@@ -2031,7 +2031,7 @@
                             "cards.currency": "ر.س",
                             "cards.edition": "EDITION 01",
                             "cards.status": "AVAILABLE",
-                            "cards.url": null
+                            "cards.link": ""
                         },
                         {
                             "cards.num": "03",
@@ -2042,7 +2042,7 @@
                             "cards.currency": "ر.س",
                             "cards.edition": "EDITION 01",
                             "cards.status": "AVAILABLE",
-                            "cards.url": null
+                            "cards.link": ""
                         }
                     ],
                     "fields": [
@@ -2095,11 +2095,10 @@
                             "label": "الحالة"
                         },
                         {
-                            "id": "cards.url",
+                            "id": "cards.link",
                             "type": "string",
                             "format": "text",
-                            "label": "رابط البطاقة",
-                            "value": ""
+                            "label": "رابط البطاقة"
                         }
                     ]
                 },
