@@ -1366,10 +1366,10 @@
                 },
                 {
                     "id": "btn_primary_url",
-                    "type": "string",
+                    "type": "items",
                     "format": "variable-list",
                     "label": "Primary Button URL",
-                    "value": "/products",
+                    "value": null,
                     "searchable": true,
                     "source": "custom",
                     "sources": [
@@ -1397,10 +1397,10 @@
                 },
                 {
                     "id": "btn_secondary_url",
-                    "type": "string",
+                    "type": "items",
                     "format": "variable-list",
                     "label": "Secondary Button URL",
-                    "value": "/products",
+                    "value": null,
                     "searchable": true,
                     "source": "custom",
                     "sources": [
@@ -2158,7 +2158,7 @@
                             "cards.currency": "ر.س",
                             "cards.edition": "EDITION 01",
                             "cards.status": "AVAILABLE",
-                            "cards.url": "/products"
+                            "cards.url": null
                         },
                         {
                             "cards.num": "02",
@@ -2169,7 +2169,7 @@
                             "cards.currency": "ر.س",
                             "cards.edition": "EDITION 01",
                             "cards.status": "AVAILABLE",
-                            "cards.url": "/products"
+                            "cards.url": null
                         },
                         {
                             "cards.num": "03",
@@ -2180,7 +2180,7 @@
                             "cards.currency": "ر.س",
                             "cards.edition": "EDITION 01",
                             "cards.status": "AVAILABLE",
-                            "cards.url": "/products"
+                            "cards.url": null
                         }
                     ],
                     "fields": [
@@ -2234,7 +2234,7 @@
                         },
                         {
                             "id": "cards.url",
-                            "type": "string",
+                            "type": "items",
                             "format": "variable-list",
                             "label": "رابط البطاقة",
                             "searchable": true,
@@ -2266,10 +2266,10 @@
                 },
                 {
                     "id": "banner_url",
-                    "type": "string",
+                    "type": "items",
                     "format": "variable-list",
                     "label": "رابط الشريط (Banner URL)",
-                    "value": "/products",
+                    "value": null,
                     "searchable": true,
                     "source": "custom",
                     "sources": [
@@ -2557,10 +2557,10 @@
                 },
                 {
                     "id": "btn_url",
-                    "type": "string",
+                    "type": "items",
                     "format": "variable-list",
                     "label": "Button URL",
-                    "value": "#apply",
+                    "value": null,
                     "searchable": true,
                     "source": "custom",
                     "sources": [
@@ -2708,10 +2708,10 @@
                 },
                 {
                     "id": "btn_url",
-                    "type": "string",
+                    "type": "items",
                     "format": "variable-list",
                     "label": "Button URL",
-                    "value": "/products",
+                    "value": null,
                     "searchable": true,
                     "source": "custom",
                     "sources": [
@@ -2834,10 +2834,10 @@
                 },
                 {
                     "id": "btn_url",
-                    "type": "string",
+                    "type": "items",
                     "format": "variable-list",
                     "label": "Button URL",
-                    "value": "/products",
+                    "value": null,
                     "searchable": true,
                     "source": "custom",
                     "sources": [
