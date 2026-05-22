@@ -30,8 +30,9 @@
       
       {% set cards = (component.cards and component.cards|length > 0 and component.cards[0]['cards.title']) ? component.cards : default_cards %}
       
+      {% set card_links = [component.card1_link|default(''), component.card2_link|default(''), component.card3_link|default('')] %}
       {% for card in cards %}
-        {% set card_url = card['cards.link']|default('') %}
+        {% set card_url = card_links[loop.index0]|default('') %}
         {% if card_url %}
         <a href="{{ card_url }}" class="playbook-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
         {% else %}
@@ -46,7 +47,7 @@
             <span>{{ card['cards.edition'] }}</span>
             <strong>{{ card['cards.status'] }}</strong>
           </div>
-          <p style="font-size:10px;color:red;word-break:break-all;">DEBUG: link=[{{ card['cards.link'] }}] keys=[{% for key, val in card %}{{ key }}={{ val }},{% endfor %}]</p>
+          <p style="font-size:10px;color:red;word-break:break-all;">DEBUG: card_url=[{{ card_url }}] index={{ loop.index0 }}</p>
         {% if card_url %}
         </a>
         {% else %}

@@ -2093,14 +2093,26 @@
                             "type": "string",
                             "format": "text",
                             "label": "الحالة"
-                        },
-                        {
-                            "id": "cards.link",
-                            "type": "string",
-                            "format": "text",
-                            "label": "رابط البطاقة"
                         }
                     ]
+                },
+                {
+                    "id": "card1_link",
+                    "type": "string",
+                    "format": "text",
+                    "label": "رابط البطاقة الأولى"
+                },
+                {
+                    "id": "card2_link",
+                    "type": "string",
+                    "format": "text",
+                    "label": "رابط البطاقة الثانية"
+                },
+                {
+                    "id": "card3_link",
+                    "type": "string",
+                    "format": "text",
+                    "label": "رابط البطاقة الثالثة"
                 },
                 {
                     "id": "banner_url",
