@@ -31,8 +31,12 @@
       {% set cards = (component.cards and component.cards|length > 0 and component.cards[0]['cards.title']) ? component.cards : default_cards %}
       
       {% for card in cards %}
-        {% set card_tag = card['cards.url'] ? 'a' : 'div' %}
-        <{{ card_tag }} {{ card['cards.url'] ? 'href="' ~ card['cards.url'] ~ '"' : '' }} class="playbook-card" style="text-decoration: none; color: inherit; display: block;">
+        {% set card_url = card['cards.url']|default('') %}
+        {% if card_url %}
+        <a href="{{ card_url }}" class="playbook-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+        {% else %}
+        <div class="playbook-card" style="text-decoration: none; color: inherit; display: block;">
+        {% endif %}
           <div class="playbook-num">{{ card['cards.num'] }}</div>
           <h3>{{ card['cards.title'] }}</h3>
           <p class="en">{{ card['cards.label'] }}</p>
@@ -42,7 +46,11 @@
             <span>{{ card['cards.edition'] }}</span>
             <strong>{{ card['cards.status'] }}</strong>
           </div>
-        </{{ card_tag }}>
+        {% if card_url %}
+        </a>
+        {% else %}
+        </div>
+        {% endif %}
       {% endfor %}
     </div>
 
