@@ -22,50 +22,28 @@
     </p>
     
     <div class="playbooks-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
-      {% set playbook_items = component.products ?: products %}
+      {% set default_cards = [
+        { 'cards.num': '01', 'cards.title': 'كيف تعمل المخطط بـ AI', 'cards.label': 'How to Build a Floor Plan with AI', 'cards.desc': 'منهجية متكاملة لتحويل البريف إلى مخطط معتمد — في خمس ساعات بدلاً من ثلاثين. Case Study حقيقية، أدوات مختارة، وقوالب جاهزة للنسخ.', 'cards.price': '560', 'cards.currency': 'ر.س', 'cards.edition': 'EDITION 01', 'cards.status': 'AVAILABLE' },
+        { 'cards.num': '02', 'cards.title': 'كيف تعمل الرندر بـ AI', 'cards.label': 'How to Build a Render with AI', 'cards.desc': 'من النموذج إلى رندر فوتوغرافي بجودة احترافية — ليس صورة واحدة، بل سرديّة متسلسلة تُغلق العقد قبل الاجتماع.', 'cards.price': '560', 'cards.currency': 'ر.س', 'cards.edition': 'EDITION 01', 'cards.status': 'AVAILABLE' },
+        { 'cards.num': '03', 'cards.title': 'كيف تبني استوديو AI', 'cards.label': 'How to Build Your AI Studio', 'cards.desc': 'نظام تشغيليّ متكامل لاستوديو يعمل وأنت نائم — من نموذج التشغيل إلى النظام التقنيّ إلى الإطار التجاري.', 'cards.price': '990', 'cards.currency': 'ر.س', 'cards.edition': 'EDITION 01', 'cards.status': 'AVAILABLE' }
+      ] %}
       
-      {% if playbook_items|length > 0 %}
-        {% for product in playbook_items %}
-          <custom-salla-product-card product="{{ product|json_encode }}" isPlaybook></custom-salla-product-card>
-        {% endfor %}
-      {% else %}
-        {# DEFAULT CARDS FROM DESIGN #}
-        <div class="playbook-card">
-          <div class="playbook-num">01</div>
-          <h3>كيف تعمل المخطط بـ AI</h3>
-          <p class="en">How to Build a Floor Plan with AI</p>
-          <p>منهجية متكاملة لتحويل البريف إلى مخطط معتمد — في خمس ساعات بدلاً من ثلاثين. Case Study حقيقية، أدوات مختارة، وقوالب جاهزة للنسخ.</p>
-          <div class="playbook-price"><span class="amount">560</span><span class="currency">ر.س</span></div>
+      {% set cards = (component.cards and component.cards|length > 0 and component.cards[0]['cards.title']) ? component.cards : default_cards %}
+      
+      {% for card in cards %}
+        {% set card_tag = card['cards.url'] ? 'a' : 'div' %}
+        <{{ card_tag }} {{ card['cards.url'] ? 'href="' ~ card['cards.url'] ~ '"' : '' }} class="playbook-card" style="text-decoration: none; color: inherit; display: block;">
+          <div class="playbook-num">{{ card['cards.num'] }}</div>
+          <h3>{{ card['cards.title'] }}</h3>
+          <p class="en">{{ card['cards.label'] }}</p>
+          <p>{{ card['cards.desc'] }}</p>
+          <div class="playbook-price"><span class="amount">{{ card['cards.price'] }}</span><span class="currency">{{ card['cards.currency'] }}</span></div>
           <div class="playbook-meta">
-            <span>EDITION 01</span>
-            <strong>AVAILABLE</strong>
+            <span>{{ card['cards.edition'] }}</span>
+            <strong>{{ card['cards.status'] }}</strong>
           </div>
-        </div>
-
-        <div class="playbook-card">
-          <div class="playbook-num">02</div>
-          <h3>كيف تعمل الرندر بـ AI</h3>
-          <p class="en">How to Build a Render with AI</p>
-          <p>من النموذج إلى رندر فوتوغرافي بجودة احترافية — ليس صورة واحدة، بل سرديّة متسلسلة تُغلق العقد قبل الاجتماع.</p>
-          <div class="playbook-price"><span class="amount">560</span><span class="currency">ر.س</span></div>
-          <div class="playbook-meta">
-            <span>EDITION 01</span>
-            <strong>AVAILABLE</strong>
-          </div>
-        </div>
-
-        <div class="playbook-card">
-          <div class="playbook-num">03</div>
-          <h3>كيف تبني استوديو AI</h3>
-          <p class="en">How to Build Your AI Studio</p>
-          <p>نظام تشغيليّ متكامل لاستوديو يعمل وأنت نائم — من نموذج التشغيل إلى النظام التقنيّ إلى الإطار التجاري.</p>
-          <div class="playbook-price"><span class="amount">990</span><span class="currency">ر.س</span></div>
-          <div class="playbook-meta">
-            <span>EDITION 01</span>
-            <strong>AVAILABLE</strong>
-          </div>
-        </div>
-      {% endif %}
+        </{{ card_tag }}>
+      {% endfor %}
     </div>
 
     <div style="margin-top:60px; padding:40px 48px; border-right:4px solid var(--coral); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;
@@ -77,7 +55,7 @@
         </h3>
         <p style="font-size:14px; color:var(--soft-ink); line-height:1.7; margin-top:12px;">هل تفضّل التطبيق بقيادة فريق MiND؟ الورشة الحضوريّة تشمل الأدلّة الثلاث مجاناً.</p>
       </div>
-      <a href="{{ link('products') }}" class="btn btn-primary" style="display: inline-block; padding: 18px 36px; font-weight: 700; font-size: 14px; transition: all .2s; border: 1px solid transparent; background: var(--ink); color: var(--cream);">للاستفسار  ←</a>
+      <a href="{{ component.banner_url|default(link('products')) }}" class="btn btn-primary" style="display: inline-block; padding: 18px 36px; font-weight: 700; font-size: 14px; transition: all .2s; border: 1px solid transparent; background: var(--ink); color: var(--cream);">للاستفسار  ←</a>
     </div>
   </div>
 </section>

@@ -1363,6 +1363,18 @@
                     "format": "color",
                     "label": "Secondary Button Color",
                     "value": "#1A1A1A"
+                },
+                {
+                    "id": "btn_primary_url",
+                    "type": "string",
+                    "format": "variable-list",
+                    "label": "Primary Button URL"
+                },
+                {
+                    "id": "btn_secondary_url",
+                    "type": "string",
+                    "format": "variable-list",
+                    "label": "Secondary Button URL"
                 }
             ]
         },
@@ -2081,13 +2093,105 @@
                     ]
                 },
                 {
-                    "id": "products",
-                    "type": "items",
-                    "format": "dropdown-list",
-                    "label": "Products",
-                    "source": "products",
-                    "multichoice": true,
-                    "maxLength": 3
+                    "id": "cards",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "البطاقات",
+                    "item_label": "بطاقة",
+                    "value": [
+                        {
+                            "cards.num": "01",
+                            "cards.title": "كيف تعمل المخطط بـ AI",
+                            "cards.label": "How to Build a Floor Plan with AI",
+                            "cards.desc": "منهجية متكاملة لتحويل البريف إلى مخطط معتمد — في خمس ساعات بدلاً من ثلاثين. Case Study حقيقية، أدوات مختارة، وقوالب جاهزة للنسخ.",
+                            "cards.price": "560",
+                            "cards.currency": "ر.س",
+                            "cards.edition": "EDITION 01",
+                            "cards.status": "AVAILABLE"
+                        },
+                        {
+                            "cards.num": "02",
+                            "cards.title": "كيف تعمل الرندر بـ AI",
+                            "cards.label": "How to Build a Render with AI",
+                            "cards.desc": "من النموذج إلى رندر فوتوغرافي بجودة احترافية — ليس صورة واحدة، بل سرديّة متسلسلة تُغلق العقد قبل الاجتماع.",
+                            "cards.price": "560",
+                            "cards.currency": "ر.س",
+                            "cards.edition": "EDITION 01",
+                            "cards.status": "AVAILABLE"
+                        },
+                        {
+                            "cards.num": "03",
+                            "cards.title": "كيف تبني استوديو AI",
+                            "cards.label": "How to Build Your AI Studio",
+                            "cards.desc": "نظام تشغيليّ متكامل لاستوديو يعمل وأنت نائم — من نموذج التشغيل إلى النظام التقنيّ إلى الإطار التجاري.",
+                            "cards.price": "990",
+                            "cards.currency": "ر.س",
+                            "cards.edition": "EDITION 01",
+                            "cards.status": "AVAILABLE"
+                        }
+                    ],
+                    "fields": [
+                        {
+                            "id": "cards.num",
+                            "type": "string",
+                            "format": "text",
+                            "label": "الرقم (مثال: 01)"
+                        },
+                        {
+                            "id": "cards.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "العنوان العربي"
+                        },
+                        {
+                            "id": "cards.label",
+                            "type": "string",
+                            "format": "text",
+                            "label": "العنوان الإنجليزي"
+                        },
+                        {
+                            "id": "cards.desc",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "الوصف"
+                        },
+                        {
+                            "id": "cards.price",
+                            "type": "string",
+                            "format": "text",
+                            "label": "السعر"
+                        },
+                        {
+                            "id": "cards.currency",
+                            "type": "string",
+                            "format": "text",
+                            "label": "العملة"
+                        },
+                        {
+                            "id": "cards.edition",
+                            "type": "string",
+                            "format": "text",
+                            "label": "الإصدار"
+                        },
+                        {
+                            "id": "cards.status",
+                            "type": "string",
+                            "format": "text",
+                            "label": "الحالة"
+                        },
+                        {
+                            "id": "cards.url",
+                            "type": "string",
+                            "format": "variable-list",
+                            "label": "رابط البطاقة"
+                        }
+                    ]
+                },
+                {
+                    "id": "banner_url",
+                    "type": "string",
+                    "format": "variable-list",
+                    "label": "رابط الشريط (Banner URL)"
                 }
             ]
         },
@@ -2350,6 +2454,12 @@
                     "value": "صفحة الورشة الكاملة  ←"
                 },
                 {
+                    "id": "btn_url",
+                    "type": "string",
+                    "format": "variable-list",
+                    "label": "Button URL"
+                },
+                {
                     "id": "features",
                     "type": "collection",
                     "format": "collection",
@@ -2468,6 +2578,12 @@
                     "format": "text",
                     "label": "Button Text",
                     "value": "اقتنِ السلسلة الكاملة  ←"
+                },
+                {
+                    "id": "btn_url",
+                    "type": "string",
+                    "format": "variable-list",
+                    "label": "Button URL"
                 }
             ]
         },
@@ -2563,6 +2679,12 @@
                     "format": "text",
                     "label": "Button Text",
                     "value": "قدّم للانضمام  ←"
+                },
+                {
+                    "id": "btn_url",
+                    "type": "string",
+                    "format": "variable-list",
+                    "label": "Button URL"
                 }
             ]
         }
