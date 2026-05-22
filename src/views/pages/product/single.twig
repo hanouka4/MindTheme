@@ -34,29 +34,29 @@
             </div>
 
             <form class="form product-form" enctype="multipart/form-data" method="post"
-                  onsubmit="return salla.form.onSubmit('cart.addItem', event)" >
+                  onsubmit="return false;" >
                 <input type="hidden" name="id" value="{{ product.id }}">
 
                 {% include 'pages.partials.product.options' %}
 
-                <div class="cta-row" style="display: flex; gap: 14px; margin-top: 20px;">
-                    <div style="flex: 1; --color-primary: var(--coral);">
-                        <salla-add-product-button
-                                {{product.can_quick_buy ? 'quick-buy' : ''}}
-                                amount="{{ product.base_currency_price }}"
-                                product-status="{{ product.status }}"
-                                product-type="{{ product.type }}"
-                                product-id="{{ product.id }}"
-                                width="wide">
-                            {{ product.add_to_cart_label }}
-                        </salla-add-product-button>
+                {% if not product.is_hidden_quantity %}
+                    <div style="margin-bottom: 16px;">
+                        <salla-quantity-input max="{{ product.max_quantity }}" value="1" name="quantity"
+                          class="border-gray-200"></salla-quantity-input>
                     </div>
+                {% endif %}
 
-                    {% if not product.is_hidden_quantity %}
-                        <salla-quantity-input max="{{ product.max_quantity }}" value="1" name="quantity" 
-                          class="border-gray-200" style="width: 120px;"></salla-quantity-input>
-                    {% endif %}
-                </div>
+                <salla-add-product-button
+                        {{product.can_quick_buy ? 'quick-buy' : ''}}
+                        amount="{{ product.base_currency_price }}"
+                        product-status="{{ product.status }}"
+                        product-type="{{ product.type }}"
+                        product-id="{{ product.id }}"
+                        {{ product.is_require_shipping ? 'required-shipping' : '' }}
+                        loader-position="end"
+                        width="wide">
+                    {{ product.add_to_cart_label }}
+                </salla-add-product-button>
             </form>
 
             <div class="flex rtl:space-x-reverse space-x-3 mt-8">
