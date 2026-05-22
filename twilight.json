@@ -1368,13 +1368,15 @@
                     "id": "btn_primary_url",
                     "type": "string",
                     "format": "variable-list",
-                    "label": "Primary Button URL"
+                    "label": "Primary Button URL",
+                    "value": "/products"
                 },
                 {
                     "id": "btn_secondary_url",
                     "type": "string",
                     "format": "variable-list",
-                    "label": "Secondary Button URL"
+                    "label": "Secondary Button URL",
+                    "value": "/products"
                 }
             ]
         },
@@ -2107,7 +2109,8 @@
                             "cards.price": "560",
                             "cards.currency": "ر.س",
                             "cards.edition": "EDITION 01",
-                            "cards.status": "AVAILABLE"
+                            "cards.status": "AVAILABLE",
+                            "cards.url": "/products"
                         },
                         {
                             "cards.num": "02",
@@ -2117,7 +2120,8 @@
                             "cards.price": "560",
                             "cards.currency": "ر.س",
                             "cards.edition": "EDITION 01",
-                            "cards.status": "AVAILABLE"
+                            "cards.status": "AVAILABLE",
+                            "cards.url": "/products"
                         },
                         {
                             "cards.num": "03",
@@ -2127,7 +2131,8 @@
                             "cards.price": "990",
                             "cards.currency": "ر.س",
                             "cards.edition": "EDITION 01",
-                            "cards.status": "AVAILABLE"
+                            "cards.status": "AVAILABLE",
+                            "cards.url": "/products"
                         }
                     ],
                     "fields": [
@@ -2191,7 +2196,8 @@
                     "id": "banner_url",
                     "type": "string",
                     "format": "variable-list",
-                    "label": "رابط الشريط (Banner URL)"
+                    "label": "رابط الشريط (Banner URL)",
+                    "value": "/products"
                 }
             ]
         },
@@ -2457,7 +2463,8 @@
                     "id": "btn_url",
                     "type": "string",
                     "format": "variable-list",
-                    "label": "Button URL"
+                    "label": "Button URL",
+                    "value": "#apply"
                 },
                 {
                     "id": "features",
@@ -2583,7 +2590,8 @@
                     "id": "btn_url",
                     "type": "string",
                     "format": "variable-list",
-                    "label": "Button URL"
+                    "label": "Button URL",
+                    "value": "/products"
                 }
             ]
         },
@@ -2684,7 +2692,8 @@
                     "id": "btn_url",
                     "type": "string",
                     "format": "variable-list",
-                    "label": "Button URL"
+                    "label": "Button URL",
+                    "value": "/products"
                 }
             ]
         }
