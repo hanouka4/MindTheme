@@ -7,22 +7,23 @@
 #}
 <header class="header">
   <div class="header-inner">
-    <a href="{{ store.url }}" class="logo">
-      {% if store.logo %}
-        <img src="{{ store.logo }}" alt="{{ store.name }}" style="max-height: 40px; width: auto;">
-      {% else %}
-        <div class="logo-dot"></div>
-        <span class="logo-text">{{ store.name|upper }}</span>
-      {% endif %}
-    </a>
+    <div class="flex items-center gap-4">
+      <a class="lg:hidden mburger mburger--collapse leading-none" href="#mobile-menu" aria-label="Open-menu">
+        <i class="sicon-menu text-2xl text-ink" style="color: var(--ink);"></i>
+      </a>
+      <a href="{{ store.url }}" class="logo">
+        {% if store.logo %}
+          <img src="{{ store.logo }}" alt="{{ store.name }}" style="max-height: 40px; width: auto;">
+        {% else %}
+          <div class="logo-dot"></div>
+          <span class="logo-text">{{ store.name|upper }}</span>
+        {% endif %}
+      </a>
+    </div>
+
+    <custom-main-menu></custom-main-menu>
+
     <nav class="nav">
-      <!-- DEBUG: menu keys = {{ menu|keys|join(', ') }} -->
-      <!-- DEBUG: menus keys = {{ menus|keys|join(', ') }} -->
-      {# Salla Menu #}
-      {% for item in menu.main %}
-        <a href="{{ item.url }}">{{ item.name|upper }}</a>
-      {% endfor %}
-      
       {# User and Cart #}
       {% if user.is_authenticated %}
         <a href="{{ link('customer.index') }}">ACCOUNT</a>
@@ -32,5 +33,41 @@
       
       <a href="{{ link('cart') }}">CART [{{ cart.items_count }}]</a>
     </nav>
+
+    <style>
+      custom-main-menu .main-menu {
+        padding: 0 !important;
+        margin: 0 24px !important;
+        display: flex !important;
+        gap: 32px !important;
+      }
+      custom-main-menu .main-menu li.root-level {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      custom-main-menu .main-menu li.root-level > a {
+        padding: 0 !important;
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 11px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.15em !important;
+        text-transform: uppercase !important;
+        color: var(--soft-ink) !important;
+        transition: color 0.2s !important;
+      }
+      custom-main-menu .main-menu li.root-level > a:hover {
+        color: var(--coral) !important;
+      }
+      custom-main-menu .main-menu li.root-level.has-children > a::after {
+        font-size: 10px !important;
+        margin-inline-start: 4px !important;
+        opacity: 0.6 !important;
+      }
+      @media (max-width: 768px) {
+        custom-main-menu .main-menu {
+          gap: 16px !important;
+        }
+      }
+    </style>
   </div>
 </header>
