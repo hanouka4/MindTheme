@@ -16,6 +16,8 @@
       {% endif %}
     </a>
     <nav class="nav">
+      <!-- DEBUG: menu keys = {{ menu|keys|join(', ') }} -->
+      <!-- DEBUG: menus keys = {{ menus|keys|join(', ') }} -->
       {# Salla Menu #}
       {% for item in menu.main %}
         <a href="{{ item.url }}">{{ item.name|upper }}</a>
