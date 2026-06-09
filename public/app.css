@@ -1825,6 +1825,9 @@ input:where([type='file']):focus{
 .font-semibold{
     font-weight: 600;
 }
+.uppercase{
+    text-transform: uppercase;
+}
 .italic{
     font-style: italic;
 }
@@ -1918,6 +1921,11 @@ input:where([type='file']):focus{
     --tw-text-opacity: 1;
     color: rgba(34, 197, 94, 1);
     color: rgba(34, 197, 94, var(--tw-text-opacity, 1));
+}
+.text-ink{
+    --tw-text-opacity: 1;
+    color: rgba(26, 26, 26, 1);
+    color: rgba(26, 26, 26, var(--tw-text-opacity, 1));
 }
 .text-primary{
     color: #E85544;

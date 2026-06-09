@@ -6,7 +6,7 @@
         <span class="logo-text" style="color:var(--cream);">MiND <span class="logo-academy">· Academy</span></span>
       </div>
       <p style="color:var(--tan); font-style:italic; font-family:'Cormorant Garamond', serif; font-size:18px; max-width:340px; line-height:1.5;">
-        {{ store.description|raw|default('Studio of AI-Native Interior Design. Riyadh, 2026.') }}
+        {{ store.description|replace({'&lt;': '<', '&gt;': '>', '&quot;': '"'})|raw|default('Studio of AI-Native Interior Design. Riyadh, 2026.') }}
       </p>
     </div>
     <div>
