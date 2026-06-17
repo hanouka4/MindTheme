@@ -9,14 +9,50 @@ class NavigationMenu extends HTMLElement {
                 this.visibleMenus = [];
                 this.overflowMenus = [];
 
+                // Try to read menus from attribute first (Twig server-side render)
+                const menusAttr = this.getAttribute('menus');
+                if (menusAttr) {
+                    try {
+                        const parsedMenus = JSON.parse(menusAttr);
+                        if (Array.isArray(parsedMenus) && parsedMenus.length > 0) {
+                            this.menus = this.normalizeMenus(parsedMenus);
+                            this.render();
+                            this.initializeResponsiveMenu();
+                            return;
+                        }
+                    } catch(e) {
+                        salla.logger.error('Failed to parse menus attribute, falling back to API', e);
+                    }
+                }
+
+                // Fallback to API if attribute not provided or empty
                 return salla.api.component.getMenus()
                 .then(({ data }) => {
-                    this.menus = data;
+                    this.menus = this.normalizeMenus(data);
                     return this.render()
                 }).then(() => {
                     this.initializeResponsiveMenu();
                 }).catch((error) => salla.logger.error('salla-menu::Error fetching menus', error));
             });
+    }
+
+    /**
+     * Normalize menu items from either Twig structure or API structure
+     * @param {Array} items
+     * @returns {Array}
+     */
+    normalizeMenus(items) {
+        if (!Array.isArray(items)) return [];
+        return items.map(item => ({
+            id: item.id || Math.random(),
+            title: item.title || item.name || '',
+            url: item.url || '#',
+            image: item.image || '',
+            attrs: item.attrs || ` id="${item.id || ''}"`,
+            link_attrs: item.link_attrs || ' target="_self"',
+            products: item.products || '',
+            children: this.normalizeMenus(item.children || item.items || [])
+        }));
     }
 
     /** 

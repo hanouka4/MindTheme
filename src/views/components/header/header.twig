@@ -21,7 +21,7 @@
       </a>
     </div>
 
-    <custom-main-menu></custom-main-menu>
+    <custom-main-menu menus="{{ menu.main|json_encode|escape('html_attr') }}"></custom-main-menu>
 
     <nav class="nav">
       {# User and Cart #}
@@ -72,9 +72,6 @@
     <div style="display: none !important;">
       <salla-cart-summary></salla-cart-summary>
       <salla-user-menu></salla-user-menu>
-      <div id="twig-debug-keys">{{ _context|keys|join(', ') }}</div>
-      <div id="twig-debug-menu-main">{{ menu.main ? 'HAS_MENU_MAIN' : 'NO_MENU_MAIN' }}</div>
-      <div id="twig-debug-menus">{{ menus ? 'HAS_MENUS' : 'NO_MENUS' }}</div>
     </div>
   </div>
 </header>
