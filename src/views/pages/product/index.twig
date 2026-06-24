@@ -23,7 +23,7 @@
         <nav class="breadcrumbs w-full py-5">
             <salla-breadcrumb></salla-breadcrumb>
         </nav>
-        {% hook 'product.index.before_products_group_with_filter' %}
+        <div class="s-blocks-wrapper s-before-products-list !mt-0">{% hook 'product.index.before_products_group_with_filter' %}</div>
         <div class="flex items-start flex-col md:flex-row">
             {% if filters %}
                 <button class="btn--close-sm close-filters sicon-cancel hidden"></button>
@@ -66,14 +66,14 @@
                 {% hook 'product:index.items.end' %}
             </div>
         </div>
-        {% hook 'product.index.after_products_group_with_filter' %}
+        <div class="s-blocks-wrapper s-after-products-list">{% hook 'product.index.after_products_group_with_filter' %}</div>
     </div>
 
 
     {% if store.settings.category.testimonial_enabled %}
         {% component 'home.testimonials' %}
     {% endif %}
-    {% hook 'product.index.after_testimonials' %}
+    <div class="s-blocks-wrapper s-after-testimonials">{% hook 'product.index.after_testimonials' %}</div>
 {% endblock %}
 
 {% block scripts %}
